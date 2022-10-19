@@ -1,9 +1,29 @@
-from unicodedata import name
+from random import choices
 from django.db import models
 
-# year 
+
+ENVIRON_COMM_CHOICES = (
+    ('suggestion','suggestion'),
+    ('positive feedback','positive feedback'),
+    ('complaints','complaints'),
+    ('requests', 'requests')
+)
+
+IMPACTS_CHOICES = (
+    ('Land','Land'),
+    ('Air','Air'),
+    ('Water','Water')
+)
+
+class AgreementDoc(models.Model):
+    doc_id = models.BigAutoField(primary_key=True)
+    year_made = models.DateField(auto_now=True)
+
+    def __str__(self):
+        pass 
 
 class BussInfo(models.Model):
+    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
     buss_id = models.BigAutoField(primary_key=True)
     buss_name = models.CharField(max_length=50)
     buss_logo = models.ImageField(upload_to=None)
@@ -15,12 +35,10 @@ class BussInfo(models.Model):
     location4 = models.CharField(max_length=70, blank=True)
 
     def __str__(self):
-        return 
-
-    def __unicode__(self):
-        return 
+        pass 
 
 class KeyDecisionMaker(models.Model):
+    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
     buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     title = models.CharField(max_length=30)
@@ -28,8 +46,35 @@ class KeyDecisionMaker(models.Model):
     signature = models.ImageField(upload_to=None)
 
 class EnvironManager(models.Model):
+    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
     buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     title = models.CharField(max_length=30)
     email = models.CharField(max_length=30)
     signature = models.ImageField(upload_to=None)
+
+class OtherResponsiblePerson(models.Model):
+    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
+    buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
+    name = models.CharField(max_length=30)
+    title = models.CharField(max_length=30)
+    email = models.CharField(max_length=30)
+    signature = models.ImageField(upload_to=None)
+
+class EnvCompOblig(models.Model):
+    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
+    buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
+    agreement_name = models.CharField(max_length=50)
+    description = models.TextField()
+
+    def __str__(self):
+        pass 
+
+class EnvComm(models.Model):
+    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
+    buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
+    comm_option = models.CharField(max_length=50, choices=ENVIRON_COMM_CHOICES)
+    description = models.TextField()
+
+    def __str__(self):
+        pass 
