@@ -1,0 +1,13 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %} Homepage {% endblock title %}
+
+{% block content %}
+
+<!--Dashboard--> 
+<h1>Home</h1>
+
+<a href="{% url 'accounts:register' %}">Register</a>
+<a href="{% url 'accounts:login' %}">Login</a>
+
+{% endblock content %}
