@@ -1,0 +1,202 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <script src="{% static 'script.js' %}" defer></script>
+    <title>ISO Form</title>
+</head>
+
+<body>
+    <form class="form" method="POST">
+        {% csrf_token %}
+        <h1 class="text-center">Registration form</h1>
+        <!-- Progress bar -->
+        <div class="progressbar">
+            <div class="progress" id="progress"></div>
+
+            <div class="progress-step progress-step-active" data-title="Business Information"></div>
+            <div class="progress-step" data-title="Compliance and Obligation"></div>
+            <div class="progress-step" data-title="Objectives"></div>
+            <div class="progress-step" data-title="Communication Log"></div>
+            <div class="progress-step" data-title="Audits and Management Review"></div>
+        </div>
+
+        <!-- Steps 1-->
+        <div class="form-step form-step-active">
+            {% comment %} <div class="business_logo">
+                <p></p>
+                <p><label class="upload_logo" for="file" style="cursor: pointer;">Click here to Upload your logo</label></p>
+                <p class="logo_output"><img id="output" width="200" /></p>
+            </div> {% endcomment %}
+            {% comment %} <div class="input-group">
+                <label for="business-name">Company Logo:</label>
+                {% render_field formA.buss_logo type="file"  accept="image/*" name="image" id="file" class="input" %}
+                <p class="logo_output"><img id="output" width="200" /></p>
+            </div> {% endcomment %}
+            <p class="main_topic">Conforming to ISO 14001:2015</p>
+            <div class="input-group">
+                <label for="business-name">Business Name:</label>
+                {% render_field formA.buss_name type="text" name="username" id="business-name" class="input" %}
+            </div>
+            <div class="input-group">
+                <label for="position">Phone Number:</label>
+                {% render_field formA.phone type="text" name="phone" id="phone" class="input" %}
+            </div>
+            <div class="input-group">
+                <label for="position">Website</label>
+                {% render_field formA.website type="text" name="website" id="website" class="input" %}
+            </div>
+            <br>
+
+            <p>ISO 14001:2015 <br> Environmental Management System
+            </p>
+            <div class="input-group">
+                <label for="dob">Start Date</label>
+                {% render_field formB.year_made type="date" name="dob" id="start-date" class="input" %}
+            </div>
+            <br>
+
+            <div class="input-group">
+                <h2 class="">Scope [Physical location(s) to which the system applies]</h2>
+                <p class="">If you do business in more than one location, please list all locations, including office:
+                </p>
+                <div class="input-group">
+                    <label for="position">Location:</label>
+                    {% render_field formA.location1 type="text" name="address" id="address" class="input" %}
+                </div>
+                <div class="input-group">
+                    <label for="position">Location 2:</label>
+                    {% render_field formA.location2 type="text" name="address" id="address" class="input" %}
+                </div>
+                <div class="input-group">
+                    <label for="position">Location 3:</label>
+                    {% render_field formA.location3 type="text" name="address" id="address" class="input" %}
+                </div>
+                <div class="input-group">
+                    <label for="position">Location 4:</label>
+                    {% render_field formA.location4 type="text" name="address" id="address" class="input" %}
+                </div>
+            </div>
+            
+            <p>ISO 14001:2015 <br> Environmental Management System</p>
+            
+            <br>
+            <div class="">
+                <h1>Introduction</h1>
+                <h3>ISO 14001: 2015 ENVIRONMENTAL MANAGEMENT SYSTEM</h3>
+                <table id="t01">
+                    <tr>
+                        <th>What is it:</th>
+                        <th>Benefits</th>
+                    </tr>
+                    <tr>
+                        <td>The international environmental standard</td>
+                        <td>– local and international recognition</td>
+                    </tr>
+                    <tr>
+                        <th>Who uses it:</th>
+                        <th></th>
+
+                    </tr>
+                    <tr>
+                        <td>Used by business worldwide</td>
+                        <td>– outstanding easy to do method</td>
+                    </tr>
+                    <tr>
+                        <th>Why:</th>
+                        <th></th>
+
+                    </tr>
+                    <tr>
+                        <td>The recognized global standard</td>
+                        <td>– risk reduction to business – cost savings</td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <br>
+        
+
+            <div class="">
+                <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step">
+            <h2 class="">Commitement and dedication personel</h2>
+            <p class="">Key decision makers are responsible for the system: leading, policy, budget, objectives,
+                implementation, quarterly auditing and annual review. Direct management runs the system.</p>
+            <h3 class="">Key Decision Maker/s responsible (name/s, title/s, signatures): </h3>
+            <div class="input-group">
+                <label for="position">Name:</label>
+                {% render_field formC.name type="text" name="name" id="name" class="input" %}
+            </div>
+            <div class="input-group">
+                <label for="position">Title:</label>
+                {% render_field formC.title type="text" name="title" id="title" class="input" %}
+            </div>
+            <div class="input-group">
+                <label for="position">Email:</label>
+                {% render_field formC.email type="email" name="email" id="email" class="input" %}
+            </div>
+            <div class="input-group">
+                <label for="position">signature:</label>
+                {% render_field formC.signature type="text" name="signature" id="signature" class="input" %}
+            </div>
+            <h3 class="">Direct Management (name/s, title/s, signatures: can be the same person/s as Key decision
+                maker/s):</h3>
+                <div class="input-group">
+                    <label for="position">Name:</label>
+                    {% render_field formD.name type="text" name="name" id="name" class="input" %}
+                </div>
+                <div class="input-group">
+                    <label for="position">Title:</label>
+                    {% render_field formD.title type="text" name="title" id="title" class="input" %}
+                </div>
+                <div class="input-group">
+                    <label for="position">Email:</label>
+                    {% render_field formD.email type="email" name="email" id="email" class="input" %}
+                </div>
+                <div class="input-group">
+                    <label for="position">signature:</label>
+                    {% render_field formD.signature type="text" name="signature" id="signature" class="input" %}
+                </div>
+            <h3 class="">Another Person Responsible (name/s, title/s, signatures: can be the same person/s as Key decision
+                maker/s):</h3>
+                <div class="input-group">
+                    <label for="position">Name:</label>
+                    {% render_field formE.name type="text" name="name" id="name" class="input" %}
+                </div>
+                <div class="input-group">
+                    <label for="position">Title:</label>
+                    {% render_field formE.title type="text" name="title" id="title" class="input" %}
+                </div>
+                <div class="input-group">
+                    <label for="position">Email:</label>
+                    {% render_field formE.email type="email" name="email" id="email" class="input" %}
+                </div>
+                <div class="input-group">
+                    <label for="position">signature:</label>
+                    {% render_field formE.signature type="text" name="signature" id="signature" class="input" %}
+                </div>
+
+            
+            <div class="btns-group">
+                <a href="#" class="btn btn-prev">Previous</a>
+                <button type="submit" class="btn">Submit</button>
+                <!-- <input type="submit" value="Submit" class="btn" /> -->
+            </div>
+        </div>
+    </form>
+    
+</body>
+
+</html>
