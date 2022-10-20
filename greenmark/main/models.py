@@ -16,17 +16,17 @@ IMPACTS_CHOICES = (
 )
 
 class AgreementDoc(models.Model):
-    doc_id = models.BigAutoField(primary_key=True)
-    year_made = models.DateField(auto_now=True)
+    # doc_id = models.BigAutoField(primary_key=True)
+    year_made = models.DateField()
 
     def __str__(self):
         pass 
 
 class BussInfo(models.Model):
-    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
-    buss_id = models.BigAutoField(primary_key=True)
+    # doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
+    # buss_id = models.BigAutoField(primary_key=True)
     buss_name = models.CharField(max_length=50)
-    buss_logo = models.ImageField(upload_to=None)
+    # buss_logo = models.ImageField(upload_to='media/BusinessLogos')
     phone = models.CharField(max_length=15)
     website = models.CharField(max_length=50)
     location1 = models.CharField(max_length=70)
@@ -38,32 +38,32 @@ class BussInfo(models.Model):
         pass 
 
 class KeyDecisionMaker(models.Model):
-    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
-    buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
+    # doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
+    # buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     title = models.CharField(max_length=30)
     email = models.CharField(max_length=30)
-    signature = models.ImageField(upload_to=None)
+    signature = models.CharField(max_length=30)
 
 class EnvironManager(models.Model):
-    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
-    buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
+    # doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
+    # buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     title = models.CharField(max_length=30)
     email = models.CharField(max_length=30)
-    signature = models.ImageField(upload_to=None)
+    signature = models.CharField(max_length=30)
 
 class OtherResponsiblePerson(models.Model):
-    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
-    buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
+    # doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
+    # buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     title = models.CharField(max_length=30)
     email = models.CharField(max_length=30)
-    signature = models.ImageField(upload_to=None)
+    signature = models.CharField(max_length=30)
 
 class EnvCompOblig(models.Model):
-    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
-    buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
+    # doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
+    # buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
     agreement_name = models.CharField(max_length=50)
     description = models.TextField()
 
@@ -71,8 +71,8 @@ class EnvCompOblig(models.Model):
         pass 
 
 class EnvComm(models.Model):
-    doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
-    buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
+    # doc_id = models.ForeignKey(AgreementDoc, on_delete=models.CASCADE)
+    # buss_id = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
     comm_option = models.CharField(max_length=50, choices=ENVIRON_COMM_CHOICES)
     description = models.TextField()
 
