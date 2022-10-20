@@ -5,8 +5,11 @@
 {% block content %}
 
 <!--Dashboard--> 
-<h1>Welcome </h1>
+<h1>Welcome {{ user.username }} </h1>
 <a href="{% url 'accounts:logout' %}">Logout</a>
 
+<div class="container">
+    <a href="{% url 'main:iso_one' %}">Fill the ISO form</a>
+</div>
 
 {% endblock content %}
