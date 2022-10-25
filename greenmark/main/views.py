@@ -1,41 +1,36 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.template.loader import get_template
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 from .models import *
 from .forms import *
 
+@login_required
 def iso_step_one(request):
+    user = request.user
     formA = BussInfoForm
-    formB = AgreementDocForm
-    formC = KeyDecisionMakerForm
-    formD = EnvironManagerForm
-    formE = OtherResponsiblePersonForm
     if request.method == "POST":
-        formA = BussInfoForm(request.POST, request.FILES)
-        formB = AgreementDocForm(request.POST)
-        formC = KeyDecisionMakerForm(request.POST)
-        formD = EnvironManagerForm(request.POST)
-        formE = OtherResponsiblePersonForm(request.POST)
-        a_valid = formA.is_valid()
-        b_valid = formB.is_valid()
-        c_valid = formC.is_valid()
-        d_valid = formD.is_valid()
-
-        if a_valid and b_valid and c_valid and d_valid:
-            a = formA.save()
-            b = formB.save()
-            c = formC.save()
-            d = formD.save()
-            e = formE.save()
+        formA = BussInfoForm(request.POST)
+        if formA.is_valid():
+            a = formA.save(commit=False)
+            a.user = user
+            a.save()
             return redirect("main:print_doc")
     context = {
-        'formA': formA,
-        'formB': formB,
-        'formC': formC,
-        'formD': formD,
-        'formE': formE,
+        'user': user,
+        'formA': formA        
     }
     return render(request, 'main/iso_form.html', context)
 
-
+@login_required
 def print_doc(request):
-    return render(request, 'main/print_doc.html')
+    user = request.user
+    modelA = BussInfo.objects.filter(user=request.user)
+    context = {
+        'user': user,
+        'modelA': modelA,
+    }
+    return render(request, 'main/print_doc.html', context)
+
