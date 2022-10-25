@@ -8,7 +8,10 @@ class BussInfoAdmin(admin.ModelAdmin):
 class EnvCompObligAdmin(admin.ModelAdmin):
     pass
 
+class AspImpactAdmin(admin.ModelAdmin):
+    pass
+
 
 admin.site.register(BussInfo, BussInfoAdmin)
 admin.site.register(EnvCompOblig, EnvCompObligAdmin)
-
+admin.site.register(AspImpact, AspImpactAdmin)
