@@ -44,14 +44,30 @@ class BussInfo(models.Model):
     def __str__(self):
         pass 
 
-
-
 class EnvCompOblig(models.Model):
     document = models.ForeignKey(BussInfo, on_delete=models.CASCADE)
     comp_oblig_name = models.CharField(max_length=50)
     comp_oblig_description = models.TextField()
     env_comm_option = models.CharField(max_length=50, choices=ENVIRON_COMM_CHOICES)
     env_comm_description = models.TextField()
+
+    def __str__(self):
+        pass 
+
+class AspImpact(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    activity_1 = models.CharField(max_length=50)
+    aspect_1 = models.CharField(max_length=50)
+    impact_1 = models.CharField(max_length=50)
+    activity_2 = models.CharField(max_length=50)
+    aspect_2 = models.CharField(max_length=50)
+    impact_2 = models.CharField(max_length=50)
+    activity_3 = models.CharField(max_length=50)
+    aspect_3 = models.CharField(max_length=50)
+    impact_3 = models.CharField(max_length=50)
+    activity_4 = models.CharField(max_length=50)
+    aspect_4 = models.CharField(max_length=50)
+    impact_4 = models.CharField(max_length=50)
 
     def __str__(self):
         pass 
