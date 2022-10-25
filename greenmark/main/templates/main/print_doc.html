@@ -1,1 +1,183 @@
-<h2>Print your document</h2>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <script src="{% static 'script.js' %}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="{% static 'html2pdf.bundle.min.js' %}"></script>
+    <title>Your Submission</title>
+</head>
+
+
+<body id='body'>
+        <h1 class="text-center">ISO Document</h1>
+
+            <h3> Dear {{ user.username }}, Here your ISO Document </h3>
+    {% for d in modelA %}
+            <p class="main_topic">Conforming to ISO 14001:2015</p>
+            <div class="input-group">
+                <p>Business Name:</p>
+                <h4>{{ d.buss_name }}</h4>
+            </div>
+            <div class="input-group">
+                <label for="position">Phone Number:</label>
+               <h4> {{ d.phone }}</h4>
+            </div>
+            <div class="input-group">
+                <label for="position">Website</label>
+                <h4>{{ d.website }}</h4>
+            </div>
+            <br>
+
+            <p>ISO 14001:2015 <br> Environmental Management System
+            </p>
+            <div class="input-group">
+                <label for="dob">Start Date</label>
+                <h4>{{ d.year_of_aggrement }}</h4>
+            </div>
+            <br>
+
+            <div class="input-group">
+                <h2 class="">Scope [Physical location(s) to which the system applies]</h2>
+                <p class="">If you do business in more than one location, please list all locations, including office:
+                </p>
+                <div class="input-group">
+                    <label for="position">Location:</label>
+                   <h4> {{ d.location1 }}</h4>
+                </div>
+                <div class="input-group">
+                    <label for="position">Location 2:</label>
+                    <h4>{{ d.location2 }}</h4>
+                </div>
+                <div class="input-group">
+                    <label for="position">Location 3:</label>
+                    <h4>{{ d.location3 }}</h4>
+                </div>
+                <div class="input-group">
+                    <label for="position">Location 4:</label>
+                    <h4>{{ d.location4 }}</h4>
+                </div>
+            </div>
+            
+            <p>ISO 14001:2015 <br> Environmental Management System</p>
+            
+            <br>
+            <div class="">
+                <h1>Introduction</h1>
+                <h3>ISO 14001: 2015 ENVIRONMENTAL MANAGEMENT SYSTEM</h3>
+                <table id="t01">
+                    <tr>
+                        <th>What is it:</th>
+                        <th>Benefits</th>
+                    </tr>
+                    <tr>
+                        <td>The international environmental standard</td>
+                        <td>– local and international recognition</td>
+                    </tr>
+                    <tr>
+                        <th>Who uses it:</th>
+                        <th></th>
+
+                    </tr>
+                    <tr>
+                        <td>Used by business worldwide</td>
+                        <td>– outstanding easy to do method</td>
+                    </tr>
+                    <tr>
+                        <th>Why:</th>
+                        <th></th>
+
+                    </tr>
+                    <tr>
+                        <td>The recognized global standard</td>
+                        <td>– risk reduction to business – cost savings</td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <br>
+       
+
+    
+            <h2 class="">Commitement and dedication personel</h2>
+            <p class="">Key decision makers are responsible for the system: leading, policy, budget, objectives,
+                implementation, quarterly auditing and annual review. Direct management runs the system.</p>
+            <h3 class="">Key Decision Maker/s responsible (name/s, title/s, signatures): </h3>
+            <div class="input-group">
+                <label for="position">Name:</label>
+                <h4>{{ d.keydecider_name }}</h4>
+            </div>
+            <div class="input-group">
+                <label for="position">Title:</label>
+                <h4>{{ d.keydecider_title }}</h4>
+            </div>
+            <div class="input-group">
+                <label for="position">Email:</label>
+                <h4>{{ d.keydecider_email }}</h4>
+            </div>
+            <div class="input-group">
+                <label for="position">signature:</label>
+                <h4>{{ d.keydecider_signature }}</h4>
+            </div>
+            <h3 class="">Direct Management (name/s, title/s, signatures: can be the same person/s as Key decision
+                maker/s):</h3>
+                <div class="input-group">
+                    <label for="position">Name:</label>
+                <h4>{{ d.envmanager_name }}</h4>
+                </div>
+                <div class="input-group">
+                    <label for="position">Title:</label>
+                    <h4>{{ d.envmanager_title }}</h4>
+                </div>
+                <div class="input-group">
+                    <label for="position">Email:</label>
+                    <h4>{{ d.envmanager_email }}</h4>
+                </div>
+                <div class="input-group">
+                    <label for="position">signature:</label>
+                    <h4>{{ d.envmanager_signature }}</h4>
+                </div>
+            <h3 class="">Another Person Responsible (name/s, title/s, signatures: can be the same person/s as Key decision
+                maker/s):</h3>
+                <div class="input-group">
+                    <label for="position">Name:</label>
+                    <h4>{{ d.otherresp_person_name }}</h4>
+                </div>
+                <div class="input-group">
+                    <label for="position">Title:</label>
+                    <h4>{{ d.otherresp_person_title }}</h4>
+                </div>
+                <div class="input-group">
+                    <label for="position">Email:</label>
+                    <h4>{{ d.otherresp_person_email }}</h4>
+                </div>
+                <div class="input-group">
+                    <label for="position">signature:</label>
+                    <h4>{{ d.otherresp_person_signature }}</h4>
+                </div>
+    {% endfor %}
+    <button id="pdfbutton">Print Document in PDF</button>
+    <a href="{% url 'accounts:dashboard' %}">Go back to Dashboard</a>
+    <br>
+    <br>
+
+
+<script>
+const btn = document.getElementById("pdfbutton");
+
+btn.addEventListener("click", function(){
+var element = document.getElementById('body');
+html2pdf().from(element).save('iso_document.pdf');
+});
+</script>
+    
+</body>
+
+</html>
