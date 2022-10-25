@@ -12,3 +12,8 @@ class EnvCompObligForm(ModelForm):
     class Meta:
         model = EnvCompOblig
         fields = '__all__'
+
+class AspImpactForm(ModelForm):
+    class Meta:
+        model = AspImpact
+        exclude = ['user']
