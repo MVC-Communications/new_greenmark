@@ -59,7 +59,7 @@
             </p>
             <div class="input-group">
                 <label for="dob">Start Date</label>
-                {% render_field formB.year_made type="date" name="dob" id="start-date" class="input" %}
+                {% render_field formA.year_of_aggrement type="date" name="dob" id="start-date" class="input" %}
             </div>
             <br>
 
@@ -137,55 +137,55 @@
             <h3 class="">Key Decision Maker/s responsible (name/s, title/s, signatures): </h3>
             <div class="input-group">
                 <label for="position">Name:</label>
-                {% render_field formC.name type="text" name="name" id="name" class="input" %}
+                {% render_field formA.keydecider_name type="text" name="name" id="name" class="input" %}
             </div>
             <div class="input-group">
                 <label for="position">Title:</label>
-                {% render_field formC.title type="text" name="title" id="title" class="input" %}
+                {% render_field formA.keydecider_title type="text" name="title" id="title" class="input" %}
             </div>
             <div class="input-group">
                 <label for="position">Email:</label>
-                {% render_field formC.email type="email" name="email" id="email" class="input" %}
+                {% render_field formA.keydecider_email type="email" name="email" id="email" class="input" %}
             </div>
             <div class="input-group">
                 <label for="position">signature:</label>
-                {% render_field formC.signature type="text" name="signature" id="signature" class="input" %}
+                {% render_field formA.keydecider_signature type="text" name="signature" id="signature" class="input" %}
             </div>
             <h3 class="">Direct Management (name/s, title/s, signatures: can be the same person/s as Key decision
                 maker/s):</h3>
                 <div class="input-group">
                     <label for="position">Name:</label>
-                    {% render_field formD.name type="text" name="name" id="name" class="input" %}
+                    {% render_field formA.envmanager_name type="text" name="name" id="name" class="input" %}
                 </div>
                 <div class="input-group">
                     <label for="position">Title:</label>
-                    {% render_field formD.title type="text" name="title" id="title" class="input" %}
+                    {% render_field formA.envmanager_title type="text" name="title" id="title" class="input" %}
                 </div>
                 <div class="input-group">
                     <label for="position">Email:</label>
-                    {% render_field formD.email type="email" name="email" id="email" class="input" %}
+                    {% render_field formA.envmanager_email type="email" name="email" id="email" class="input" %}
                 </div>
                 <div class="input-group">
                     <label for="position">signature:</label>
-                    {% render_field formD.signature type="text" name="signature" id="signature" class="input" %}
+                    {% render_field formA.envmanager_signature type="text" name="signature" id="signature" class="input" %}
                 </div>
             <h3 class="">Another Person Responsible (name/s, title/s, signatures: can be the same person/s as Key decision
                 maker/s):</h3>
                 <div class="input-group">
                     <label for="position">Name:</label>
-                    {% render_field formE.name type="text" name="name" id="name" class="input" %}
+                    {% render_field formA.otherresp_person_name type="text" name="name" id="name" class="input" %}
                 </div>
                 <div class="input-group">
                     <label for="position">Title:</label>
-                    {% render_field formE.title type="text" name="title" id="title" class="input" %}
+                    {% render_field formA.otherresp_person_title type="text" name="title" id="title" class="input" %}
                 </div>
                 <div class="input-group">
                     <label for="position">Email:</label>
-                    {% render_field formE.email type="email" name="email" id="email" class="input" %}
+                    {% render_field formA.otherresp_person_email type="email" name="email" id="email" class="input" %}
                 </div>
                 <div class="input-group">
                     <label for="position">signature:</label>
-                    {% render_field formE.signature type="text" name="signature" id="signature" class="input" %}
+                    {% render_field formA.otherresp_person_signature type="text" name="signature" id="signature" class="input" %}
                 </div>
 
             
