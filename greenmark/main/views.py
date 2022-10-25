@@ -11,16 +11,22 @@ from .forms import *
 def iso_step_one(request):
     user = request.user
     formA = BussInfoForm
+    formB = AspImpactForm
     if request.method == "POST":
         formA = BussInfoForm(request.POST)
-        if formA.is_valid():
+        formB = AspImpactForm(request.POST)
+        if formA.is_valid() and formB.is_valid():
             a = formA.save(commit=False)
             a.user = user
+            b = formB.save(commit=False)
+            b.user = user
             a.save()
+            b.save()
             return redirect("main:print_doc")
     context = {
         'user': user,
-        'formA': formA        
+        'formA': formA,
+        'formB': formB        
     }
     return render(request, 'main/iso_form.html', context)
 
@@ -28,9 +34,11 @@ def iso_step_one(request):
 def print_doc(request):
     user = request.user
     modelA = BussInfo.objects.filter(user=request.user)
+    modelB = AspImpact.objects.filter(user=request.user)
     context = {
         'user': user,
         'modelA': modelA,
+        'modelB': modelB
     }
     return render(request, 'main/print_doc.html', context)
 
