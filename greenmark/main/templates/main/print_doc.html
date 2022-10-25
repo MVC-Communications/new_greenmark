@@ -163,6 +163,50 @@
                     <h4>{{ d.otherresp_person_signature }}</h4>
                 </div>
     {% endfor %}
+    {% for b in modelB %}
+    <table>
+        <caption>Examples of Aspects and Impacts:</caption>
+        <tr>
+            <th>Activities </th>
+            <th>Aspects </th>
+            <th>Impacts</th>
+        </tr>
+
+        <tr>
+            <td>Cutting panels with electrical saw</td>
+            <td> Using regular electricity <br>
+                Discharging scrap pieces to landfill</td>
+            <td>Air pollution <br> Land pollution </td>
+        </tr>
+
+        <tr>
+            <td> {{ b.activity_1 }} </td>
+            <td> {{ b.aspect_1 }}</td>
+            <td>{{ b.impact_1 }}</td>
+        </tr>
+
+        <tr>
+            <td>{{ b.activity_2 }}</td>
+            <td>{{ b.aspect_2 }}</td>
+            <td>{{ b.impact_2 }}</td>
+        </tr>
+
+
+        <tr>
+            <td>{{ b.activity_3 }}</td>
+            <td>{{ b.aspect_3 }}</td>
+            <td>{{ b.impact_3 }}</td>
+        </tr>
+
+        <tr>
+            <td>{{ b.activity_4 }}</td>
+            <td>{{ b.aspect_4 }}</td>
+            <td>{{ b.impact_4 }}</td>
+        </tr>
+
+        
+    </table>
+    {% endfor %}
     <button id="pdfbutton">Print Document in PDF</button>
     <a href="{% url 'accounts:dashboard' %}">Go back to Dashboard</a>
     <br>

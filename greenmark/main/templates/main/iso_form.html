@@ -188,6 +188,49 @@
                     {% render_field formA.otherresp_person_signature type="text" name="signature" id="signature" class="input" %}
                 </div>
 
+                <table>
+                    <caption>Examples of Aspects and Impacts:</caption>
+                    <tr>
+                        <th>Activities </th>
+                        <th>Aspects </th>
+                        <th>Impacts</th>
+                    </tr>
+    
+                    <tr>
+                        <td>Cutting panels with electrical saw</td>
+                        <td> Using regular electricity <br>
+                            Discharging scrap pieces to landfill</td>
+                        <td>Air pollution <br> Land pollution </td>
+                    </tr>
+    
+                    <tr>
+                        <td> {% render_field formB.activity_1 type="text" placeholder="Enter text here" %} </td>
+                        <td> {% render_field formB.aspect_1 type="text" placeholder="Enter text here" %} </td>
+                        <td> {% render_field formB.impact_1 type="text" placeholder="Enter text here" %} </td>
+                    </tr>
+    
+                    <tr>
+                        <td>{% render_field formB.activity_2 type="text" placeholder="Enter text here" %}</td>
+                        <td>{% render_field formB.aspect_2 type="text" placeholder="Enter text here" %}</td>
+                        <td>{% render_field formB.impact_2 type="text" placeholder="Enter text here" %}</td>
+                    </tr>
+    
+    
+                    <tr>
+                        <td>{% render_field formB.activity_3 type="text" placeholder="Enter text here" %}</td>
+                        <td>{% render_field formB.aspect_3 type="text" placeholder="Enter text here" %}</td>
+                        <td>{% render_field formB.impact_3 type="text" placeholder="Enter text here" %}</td>
+                    </tr>
+    
+                    <tr>
+                        <td>{% render_field formB.activity_4 type="text" placeholder="Enter text here" %}</td>
+                        <td>{% render_field formB.aspect_4 type="text" placeholder="Enter text here" %}</td>
+                        <td>{% render_field formB.impact_4 type="text" placeholder="Enter text here" %}</td>
+                    </tr>
+    
+                </table>
+                <br><br>
+
             
             <div class="btns-group">
                 <a href="#" class="btn btn-prev">Previous</a>
