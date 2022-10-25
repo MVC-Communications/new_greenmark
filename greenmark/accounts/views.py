@@ -1,12 +1,14 @@
 from django.shortcuts import  render, redirect
 from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 
 def homepage(request):
     return render(request, "accounts/home.html")
 
+@login_required
 def dashboard(request):
     return render(request, "accounts/dashboard.html")
 
