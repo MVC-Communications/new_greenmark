@@ -1,5 +1,3 @@
-// Script for the button and progress bar
-
 const prevBtns = document.querySelectorAll(".btn-prev");
 const nextBtns = document.querySelectorAll(".btn-next");
 const progress = document.getElementById("progress");
@@ -33,9 +31,6 @@ function updateFormSteps() {
   formSteps[formStepsNum].classList.add("form-step-active");
 }
 
-
-// progress bar script
-
 function updateProgressbar() {
   progressSteps.forEach((progressStep, idx) => {
     if (idx < formStepsNum + 1) {
@@ -51,8 +46,6 @@ function updateProgressbar() {
     ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
 }
 
-
-// script for the image upload
 var loadFile = function(event) {
 	var image = document.getElementById('output');
 	image.src = URL.createObjectURL(event.target.files[0]);

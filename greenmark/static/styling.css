@@ -49,6 +49,14 @@
     border-radius: 0.25rem;
   }
 
+  .textfields{
+    display: inline-flex;
+    width:20% ;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+  }
+
   /* css for the budget input */
   .budget{
       display: inline-block;
@@ -137,7 +145,7 @@
     width: clamp(1000px, 30%, 430px);
     height: auto;
     margin: 0 auto;
-    border: 1px solid #ccc;
+    border-right: none;
     border-radius: 0.35rem;
     padding: 1.5rem;
     border-left: 55px solid #546e7a;
