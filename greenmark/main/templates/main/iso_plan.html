@@ -1,0 +1,57 @@
+{% extends 'main/iso_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Start Here{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <h3>Back to dashboard</h3>
+</div>
+
+<form class="form">
+
+<div class="progressbar">
+    <div class="progress" id="progress"></div>
+
+    <div class="progress-step progress-step-active" data-title="GET STARTED"></div>
+    <div class="progress-step" data-title="PLAN"></div>
+    <div class="progress-step" data-title="DO"></div>
+    <div class="progress-step" data-title="CHECK"></div>
+    <div class="progress-step" data-title="ACT"></div>
+</div>
+
+<h1 class="text-center">Registration form</h1>
+
+
+        <div class="form-step form-step-active">
+            <h2>Getting Started</h2>
+            <p><strong><em>Plan Do Check Act</em></strong></p>
+            <p><strong> Plan</strong></p>
+
+            <p>Business Information, Scope and Commitment</p>
+            <p>Compliance Obligations, Activities, Aspects and Impacts</p>
+
+            <p><strong>Do</strong></p>
+            <p>Risk Assessment, Objective and Policy,</p>
+            <p>Emergency Response, Nonconformities,</p>
+            <p>Communication, Documnentation</p>
+
+            <p><strong>Check</strong></p>
+            <p>Audits and Annual Review</p>
+            <p>greenmark registry commitment</p>
+
+            <p><strong>ACT</strong></p>
+            <p>Continual improvement</p>
+
+
+            <br><br>
+            <div class="btns-group">
+                <a href="{% url 'main:iso_buss_info' %}" class="btn btn-next">Next</a>
+            </div>
+        </div>
+
+</form>
+
+{% endblock content %}
