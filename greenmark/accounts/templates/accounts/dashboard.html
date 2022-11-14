@@ -1,15 +1,82 @@
 {% extends 'accounts/base.html' %}
 
+{% block css %}
+
+{% endblock css %}
 {% block title %} Dashboard {% endblock title %}
 
 {% block content %}
 
 <!--Dashboard--> 
-<h1>Welcome {{ user.username }} </h1>
-<a href="{% url 'accounts:logout' %}">Logout</a>
+
+  <div class="nav-area">
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <span class="left-float"><a href="{% url 'accounts:logout' %}">Logout</a></spa>
+    </nav>
+  </div>
+  
+  <br> 
+  
+  <div class="container">
+    <div class="jumbotron">
+        <h2>Dashboard</h2>
+        <hr>
+
+        <h1>Welcome {{ user.username.title }} </h1>
+        
+        <a class="btn btn-primary" href="{% url 'main:iso_start' %}">Fill the ISO form</a>
+        
+    </div>
+  </div>
+
 
 <div class="container">
-    <a href="{% url 'main:iso_one' %}">Fill the ISO form</a>
+    <div class="row">
+        <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+            <h5 class="card-title">Plan</h5>
+            <p class="card-text">Business Information, Scope and Commitment,
+            Compliance Obligations, Activities, Aspects and Impacts</p>
+            <a href="#" class="btn btn-primary">View/Update</a>
+            </div>
+        </div>
+        </div>
+        <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+            <h5 class="card-title">Do</h5>
+            <p class="card-text">Risk Assessment, Objective and Policy,
+            Emergency Response, Nonconformities, Communication, Documnentation</p>
+            <a href="#" class="btn btn-primary">View/Update</a>
+            </div>
+        </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Check</h5>
+                <p class="card-text">Audits and Annual Review, 
+                    <br>greenmark registry commitment</p>
+                <a href="#" class="btn btn-primary">View/Update</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Act</h5>
+                <p class="card-text">Continual improvement</p>
+                <a href="#" class="btn btn-primary">View/Update</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+<br>
+<br>
+
 {% endblock content %}
+
