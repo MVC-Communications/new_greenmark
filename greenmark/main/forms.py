@@ -11,9 +11,20 @@ class BussInfoForm(ModelForm):
 class EnvCompObligForm(ModelForm):
     class Meta:
         model = EnvCompOblig
-        fields = '__all__'
+        exclude = ['user']
 
 class AspImpactForm(ModelForm):
     class Meta:
         model = AspImpact
         exclude = ['user']
+
+class EnvThreatsForm(ModelForm):
+    class Meta:
+        model = EnvThreats
+        exclude = ['user']
+
+class TrainersForm(ModelForm):
+    class Meta:
+        model = AspImpact
+        exclude = ['user']
+
