@@ -8,6 +8,23 @@ from .models import *
 from .forms import *
 
 @login_required
+def iso_start(request):
+    return render(request, 'main/iso_plan.html')
+
+@login_required
+def iso_buss_info(request):
+    form = BussInfoForm
+    if request.method == "POST":
+        form = BussInfoForm(request.POST)
+        if form.is_valid():
+            a = form.save(commit=False)
+            a.user = request.user
+            a.save()
+            return redirect("")
+    context = {'form':form}
+    return render(request, 'main/iso_buss_info.html', context)
+
+@login_required
 def iso_step_one(request):
     user = request.user
     formA = BussInfoForm
