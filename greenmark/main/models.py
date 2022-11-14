@@ -28,6 +28,11 @@ IF_OCCURS_CHOICES = (
     ('Minor','Minor')
 )
 
+YES_OR_NO = (
+    ('Yes','Yes'),
+    ('No','No')
+)
+
 class BussInfo(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     year_of_aggrement = models.DateField()
@@ -119,4 +124,220 @@ class Trainers(models.Model):
     trainee_email = models.CharField(max_length=50)
 
     def __str__(self):
-        return 
+        pass 
+
+# communications
+class Comm_1(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    how_comm = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    person_email = models.CharField(max_length=50)
+    who_receives = models.CharField(max_length=50)
+    when = models.CharField(max_length=50)
+
+    def __str__(self):
+        pass
+
+class Comm_2(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    how_comm = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    person_email = models.CharField(max_length=50)
+    who_receives = models.CharField(max_length=50)
+    when = models.CharField(max_length=50)
+
+    def __str__(self):
+        pass
+
+class Comm_3(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    how_comm = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    person_email = models.CharField(max_length=50)
+    who_receives = models.CharField(max_length=50)
+    when = models.CharField(max_length=50)
+
+    def __str__(self):
+        pass
+
+class Comm_4(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    how_comm = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    person_email = models.CharField(max_length=50)
+    who_receives = models.CharField(max_length=50)
+    when = models.CharField(max_length=50)
+
+    def __str__(self):
+        pass
+
+class Comm_5(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    how_comm = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    person_email = models.CharField(max_length=50)
+    who_receives = models.CharField(max_length=50)
+    when = models.CharField(max_length=50)
+
+    def __str__(self):
+        pass
+
+class Comm_6(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    how_comm = models.CharField(max_length=50)
+    do_you_commit = models.CharField(max_length=10, choices=YES_OR_NO) 
+    person_resp = models.CharField(max_length=50)
+    person_email = models.CharField(max_length=50)
+    who_receives = models.CharField(max_length=50)
+    when = models.CharField(max_length=50)
+
+    def __str__(self):
+        pass
+
+class Comm_7(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    how_comm = models.CharField(max_length=50)
+    do_you_commit = models.CharField(max_length=10, choices=YES_OR_NO) 
+    person_resp = models.CharField(max_length=50)
+    person_email = models.CharField(max_length=50)
+    who_receives = models.CharField(max_length=50)
+    when = models.CharField(max_length=50)
+
+    def __str__(self):
+        pass
+
+class Comm_8(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    how_comm = models.CharField(max_length=50)
+    do_you_commit = models.CharField(max_length=10, choices=YES_OR_NO) 
+    person_resp = models.CharField(max_length=50)
+    person_email = models.CharField(max_length=50)
+    who_receives = models.CharField(max_length=50)
+    when = models.CharField(max_length=50)
+
+    def __str__(self):
+        pass
+
+class Comm_9(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    how_comm = models.CharField(max_length=50, blank=True)
+    do_you_commit = models.CharField(max_length=10, choices=YES_OR_NO, blank=True) 
+    person_resp = models.CharField(max_length=50, blank=True)
+    person_email = models.CharField(max_length=50, blank=True)
+    who_receives = models.CharField(max_length=50, blank=True)
+    when = models.CharField(max_length=50, blank=True)
+
+    def __str__(self):
+        pass
+
+# DOCUMENTATION
+class Doc_1(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    main_location = models.CharField(max_length=50)
+    other_location = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    comments = models.TextField()
+
+    def __str__(self):
+        pass
+
+class Doc_2(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    main_location = models.CharField(max_length=50)
+    other_location = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    comments = models.TextField()
+
+    def __str__(self):
+        pass
+
+
+class Doc_3(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    main_location = models.CharField(max_length=50)
+    other_location = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    comments = models.TextField()
+
+    def __str__(self):
+        pass
+
+class Doc_4(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    main_location = models.CharField(max_length=50)
+    other_location = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    comments = models.TextField()
+
+    def __str__(self):
+        pass
+
+class Doc_5(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    main_location = models.CharField(max_length=50)
+    other_location = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    comments = models.TextField()
+
+    def __str__(self):
+        pass
+
+class Doc_6(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    main_location = models.CharField(max_length=50)
+    other_location = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    comments = models.TextField()
+
+    def __str__(self):
+        pass
+
+class Doc_7(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    main_location = models.CharField(max_length=50)
+    other_location = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    comments = models.TextField()
+
+    def __str__(self):
+        pass
+
+class Doc_8(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    main_location = models.CharField(max_length=50)
+    other_location = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    comments = models.TextField()
+
+    def __str__(self):
+        pass
+
+class Doc_9(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    main_location = models.CharField(max_length=50)
+    other_location = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    comments = models.TextField()
+
+    def __str__(self):
+        pass
+
+class Doc_10(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    main_location = models.CharField(max_length=50)
+    other_location = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    comments = models.TextField()
+
+    def __str__(self):
+        pass
+
+class Doc_11(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    main_location = models.CharField(max_length=50)
+    other_location = models.CharField(max_length=50)
+    person_resp = models.CharField(max_length=50)
+    comments = models.TextField()
+
+    def __str__(self):
+        pass
