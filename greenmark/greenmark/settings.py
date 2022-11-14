@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'widget_tweaks',
     'xhtml2pdf',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
