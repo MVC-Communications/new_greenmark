@@ -11,7 +11,7 @@
 
   <div class="nav-area">
     <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Greenmark Online</a>
       <span class="left-float"><a href="{% url 'accounts:logout' %}">Logout</a></spa>
     </nav>
   </div>
@@ -20,36 +20,92 @@
   
   <div class="container">
     <div class="jumbotron">
-        <h2>Dashboard</h2>
+        <h2>Dashboard - Welcome {{ user.username.title }} </h2>
         <hr>
 
-        <h1>Welcome {{ user.username.title }} </h1>
+        <h1>ISO 2015: ENVIRONMENTAL MANAGEMENT FORM</h1>
+
+        {% if modelA.not_exist %}
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+            Fill ISO form
+        </button>
+        {% elif modelA.exists %}
+        <div class="alert alert-success" role="alert">
+            You have an ongoing session
+        </div>
         
-        <a class="btn btn-primary" href="{% url 'main:iso_start' %}">Fill the ISO form</a>
+        {% endif %}
+        
+        
+  
+        <!-- Modal -->
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ISO 14001: Environmental Management Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Getting Started</h2>
+                    <p><strong><em>Plan - Do - Check - Act</em></strong></p>
+                    <hr>
+                    <p><strong>STEP 1 - Plan</strong></p>
+                    <p>Business Information, Scope and Commitment</p>
+                    <p>Compliance Obligations, Activities, Aspects and Impacts</p>
+        
+                    <p><strong>STEP 2 - Do</strong></p>
+                    <p>Risk Assessment, Objective and Policy,</p>
+                    <p>Emergency Response, Nonconformities,</p>
+                    <p>Communication, Documnentation</p>
+        
+                    <p><strong>STEP 3 - Check</strong></p>
+                    <p>Audits and Annual Review</p>
+                    <p>greenmark registry commitment</p>
+        
+                    <p><strong>STEP 4 - ACT</strong></p>
+                    <p>Continual improvement</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="{% url 'main:iso_buss_info' %}" type="button" class="btn btn-success">Get Started</a>
+                </div>
+            </div>
+            </div>
+        </div>
         
     </div>
   </div>
 
 
+
+
 <div class="container">
     <div class="row">
+        {% if modelA.exists %}
         <div class="col-sm-3">
         <div class="card">
             <div class="card-body">
             <h5 class="card-title">Plan</h5>
             <p class="card-text">Business Information, Scope and Commitment,
             Compliance Obligations, Activities, Aspects and Impacts</p>
-            <a href="#" class="btn btn-primary">View/Update</a>
+            <a href="{% url 'main:view_plan' %}" class="btn btn-success">View</a>
+            <a href="{% url 'main:iso_step_two' %}" class="btn btn-success">Continue</a>
             </div>
         </div>
         </div>
+        {% elif ModelC.exist %}
         <div class="col-sm-3">
         <div class="card">
             <div class="card-body">
             <h5 class="card-title">Do</h5>
             <p class="card-text">Risk Assessment, Objective and Policy,
             Emergency Response, Nonconformities, Communication, Documnentation</p>
-            <a href="#" class="btn btn-primary">View/Update</a>
+            <a href="#" class="btn btn-success">View/Update</a>
             </div>
         </div>
         </div>
@@ -59,7 +115,7 @@
                 <h5 class="card-title">Check</h5>
                 <p class="card-text">Audits and Annual Review, 
                     <br>greenmark registry commitment</p>
-                <a href="#" class="btn btn-primary">View/Update</a>
+                <a href="#" class="btn btn-success">View/Update</a>
                 </div>
             </div>
         </div>
@@ -68,12 +124,20 @@
                 <div class="card-body">
                 <h5 class="card-title">Act</h5>
                 <p class="card-text">Continual improvement</p>
-                <a href="#" class="btn btn-primary">View/Update</a>
+                <a href="#" class="btn btn-success">View/Update</a>
                 </div>
             </div>
         </div>
     </div>
+    {% else %}
+    <div class="alert alert-success" role="alert">
+            You do not have any saved records
+    </div>
+    {% endif %}
 </div>
+
+
+
 
 <br>
 <br>
