@@ -1,0 +1,53 @@
+{% extends 'main/iso_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Do{% endblock title %}
+
+{% block content %}
+<br> 
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">STEP 2 - Do</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'accounts:dashboard' %}">Back to dashboard</a></li>
+        </ol>
+    </nav>
+</div>
+
+
+<form class="form">
+
+    <h2>STEP 3 - Check</h2>
+
+    <br>
+
+    <!-- Sectoin for ACT -->
+    <div>
+        <h3>ANNUAL MANAGEMENT REVIEW</h3>
+        <p><strong>This review should be completed at the end of the year:</strong> it can be done during or right after the fourth Quarter Audit or soon after. The Key Decision Maker/s and the Environment Manager do the following:
+        <ol>
+            <li>Evaluate the overall environmental performance in light of the policy and commitment to objectives</li>
+
+            <li>Identify and commit to new objectives taking into account changes in the business during the last year</li>
+
+            <li>Sign off on starting a new ISO 14001:2015 cycle and celebrate success</li>
+        </ol>
+        </p>
+        {% for bus_info in modelA  %}
+
+        <h3>CONTINUAL IMPROVEMENT</h3>
+        <p> <strong> {{ bus_info.buss_name }} </strong> commits to having quarterly and annual reviews, audited by greenmark. </p>
+
+        <p> <strong> {{ bus_info.buss_name }} </strong>   commits to continually improve its environmental management system, evidenced by the greenmark online registry.</p>
+
+        {% endfor %}
+        <br><br>
+        <div class="btns-group">
+            <a href="{% url 'main:print_doc' %}" type="submit" class="btn">Launch your ISO 14001:2015 EMS</a>
+        </div>
+    </div>
+
+</form>
+
+{% endblock content %}

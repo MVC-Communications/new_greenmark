@@ -1,0 +1,239 @@
+{% extends 'accounts/base.html' %}
+
+{% block css %}
+
+{% endblock css %}
+{% block title %} View Plan {% endblock title %}
+
+{% block content %}
+
+<div class="nav-area">
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Greenmark Online</a>
+      <span class="right-float"><a href="{% url 'accounts:dashboard' %}">Bach to Dashboard</a></span>
+    </nav>
+</div>
+
+<br>
+
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">PLAN</h4>
+        <hr>
+        <p class="mb-0">Business Information, Scope and Commitment, Compliance Obligations, Activities, Aspects and Impacts</p>
+    </div>
+</div>
+
+{% for plan in modelA %}
+<div class="container">
+    <div class="row">
+    <div class="col-sm-6">
+    <div class="card border-success">
+        <h5 class="card-header">Business Information</h5>
+        <div class="card-body">
+          <p class="card-text">Business Name: <strong> {{ plan.buss_name }} </strong> </p>
+          <p class="card-text">Phone Number: <strong> {{ plan.phone }} </strong> </p>
+          <p class="card-text">Website: <strong> {{ plan.website }} </strong> </p>
+          <hr>
+          <h6 class="card-title">Conforming to ISO 14001:2015</h6>
+          <p class="card-text">Physical location(s) to which the system applies: </p>
+          {% for loc in modelD %}
+          <ol class="card-text">
+            <li>{{ loc.location }}</li>
+            <li>{{ loc.phone }}</li>
+            <li>{{ loc.address }}</li>
+          </ol>
+          <hr>
+          {% endfor %}
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card border-success">
+            <h5 class="card-header">Details ofPersonnels</h5>
+            <div class="card-body">
+              <p><strong>Key Decision Maker responsible for the system:</strong> leading, policy, budget,
+                objectives, implementation, quarterly auditing and annual review:</p>
+              <p class="card-text">Name: <strong> {{ plan.keydecider_name }} </strong> </p>
+              <p class="card-text">Title: <strong> {{ plan.keydecider_title }} </strong> </p>
+              <pk class="card-text">Email Address: <strong> {{ plan.keydecider_email }} </strong> </p>
+              <p class="card-text">Signature: <strong> {{ plan.keydecider_signature }} </strong> </p>
+              <hr>
+              <p><strong>Environmental Manager responsible for day to day system operation</strong></p>
+              <p class="card-text">Name: <strong> {{ plan.envmanager_name }} </strong> </p>
+              <p class="card-text">Title: <strong> {{ plan.envmanager_title }} </strong> </p>
+              <p class="card-text">Email Address: <strong> {{ plan.envmanager_email }} </strong> </p>
+              <p class="card-text">Signature: <strong> {{ plan.envmanager_signature }} </strong> </p>
+              <hr>
+              <p><strong>Other Person responsible for Environmental Legal Compliance</strong></p>
+              <p class="card-text">Name: <strong> {{ plan.otherresp_person_name }} </strong> </p>
+              <p class="card-text">Title: <strong> {{ plan.otherresp_person_title }} </strong> </p>
+              <p class="card-text">Email Address: <strong> {{ plan.otherresp_person_email }} </strong> </p>
+              <p class="card-text">Signature: <strong> {{ plan.otherresp_person_signature }} </strong> </p>
+              
+            </div>
+          </div>
+        </div>
+</div>
+</div>
+{% endfor %}
+<br>
+{% for plan in modelB %}
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">Environmental Compliance Obligations:</h5>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Name Agreement description and location to written agreement </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{ plan.comp_oblig_name_1 }}</td>
+                    <td>{{ plan.comp_oblig_description_1 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>{{ plan.comp_oblig_name_2 }}</td>
+                    <td>{{ plan.comp_oblig_description_2 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>{{ plan.comp_oblig_name_3 }}</td>
+                    <td>{{ plan.comp_oblig_description_3 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>{{ plan.comp_oblig_name_4 }}</td>
+                    <td>{{ plan.comp_oblig_description_4 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>{{ plan.comp_oblig_name_5 }}</td>
+                    <td>{{ plan.comp_oblig_description_5 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>{{ plan.comp_oblig_name_6 }}</td>
+                    <td>{{ plan.comp_oblig_description_6 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>{{ plan.comp_oblig_name_7 }}</td>
+                    <td>{{ plan.comp_oblig_description_7 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>{{ plan.comp_oblig_name_8 }}</td>
+                    <td>{{ plan.comp_oblig_description_8 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>{{ plan.comp_oblig_name_9 }}</td>
+                    <td>{{ plan.comp_oblig_description_9 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>{{ plan.comp_oblig_name_10 }}</td>
+                    <td>{{ plan.comp_oblig_description_10 }}</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<br>
+{% for plan in modelC %}
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">ACTIVITIES, ASPECTS AND IMPACTS</h5>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Activities</th>
+                    <th scope="col">Aspects</th>
+                    <th scope="col">Impacts</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{ plan.activity_1 }}</td>
+                    <td>{{ plan.aspect_1 }}</td>
+                    <td>{{ plan.impact_1 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>{{ plan.activity_2 }}</td>
+                    <td>{{ plan.aspect_2 }}</td>
+                    <td>{{ plan.impact_2 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>{{ plan.activity_3 }}</td>
+                    <td>{{ plan.aspect_3 }}</td>
+                    <td>{{ plan.impact_3 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>{{ plan.activity_4 }}</td>
+                    <td>{{ plan.aspect_4 }}</td>
+                    <td>{{ plan.impact_4 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>{{ plan.activity_5 }}</td>
+                    <td>{{ plan.aspect_5 }}</td>
+                    <td>{{ plan.impact_5 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>{{ plan.activity_6 }}</td>
+                    <td>{{ plan.aspect_6 }}</td>
+                    <td>{{ plan.impact_6 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>{{ plan.activity_7 }}</td>
+                    <td>{{ plan.aspect_7 }}</td>
+                    <td>{{ plan.impact_7 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>{{ plan.activity_8 }}</td>
+                    <td>{{ plan.aspect_8 }}</td>
+                    <td>{{ plan.impact_8 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>{{ plan.activity_9 }}</td>
+                    <td>{{ plan.aspect_9 }}</td>
+                    <td>{{ plan.impact_9 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>{{ plan.activity_10 }}</td>
+                    <td>{{ plan.aspect_10 }}</td>
+                    <td>{{ plan.impact_10 }}</td>
+                  </tr>
+                  
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+{% endblock content %}
+

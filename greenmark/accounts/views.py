@@ -1,16 +1,28 @@
 from django.shortcuts import  render, redirect
-from .forms import NewUserForm
+from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+
+from main.models import *
+from main.forms import *
+from .forms import NewUserForm
 
 def homepage(request):
     return render(request, "accounts/home.html")
 
 @login_required
 def dashboard(request):
-    return render(request, "accounts/dashboard.html")
+	modelA = BussInfo.objects.filter(user=request.user)
+	modelB = EnvThreats.objects.filter(user=request.user)
+	modelC = AuditReview.objects.filter(user=request.user)
+	context = {
+        'modelA': modelA,
+        'modelB': modelB,
+		'modelC': modelC,
+    }
+	return render(request, "accounts/dashboard.html", context)
 
 def register_request(request):
 	if request.method == "POST":

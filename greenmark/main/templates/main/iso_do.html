@@ -1,0 +1,927 @@
+{% extends 'main/iso_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Do{% endblock title %}
+
+{% block content %}
+<br> 
+<div class="container">
+    <p><strong>Other Person responsible for Environmental Legal Compliance</strong></p>
+              <p class="card-text">Name: <strong> {{ plan.otherresp_person_name }} </strong> </p>
+              <p class="card-text">Title: <strong> {{ plan.otherresp_person_title }} </strong> </p>
+              <p class="card-text">Email Address: <strong> {{ plan.otherresp_person_email }} </strong> </p>
+              <p class="card-text">Signature: <strong> {{ plan.otherresp_person_signature }} </strong> </p><p><strong>Other Person responsible for Environmental Legal Compliance</strong></p>
+              <p class="card-text">Name: <strong> {{ plan.otherresp_person_name }} </strong> </p>
+              <p class="card-text">Title: <strong> {{ plan.otherresp_person_title }} </strong> </p>
+              <p class="card-text">Email Address: <strong> {{ plan.otherresp_person_email }} </strong> </p>
+              <p class="card-text">Signature: <strong> {{ plan.otherresp_person_signature }} </strong> </p>
+</div>
+
+
+<form class="form" method="post">
+    {% csrf_token %}
+
+    <h2>STEP 2 - Do</h2>
+    <div class="progressbar">
+        <div class="progress" id="progress"></div>
+
+        <div class="progress-step progress-step-active"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+    </div>
+
+
+    <!-- section for DO -->
+        <!-- Section 4 -->
+        <div class="form-step form-step-active">
+            <h2 style="color: green;"> RISK ASSESSMENT:</h2>
+            <p>A major principle of ISO 14001:2015 is the prevention of pollution. This requires identifying the serious
+                threats and higher risk level of negative impacts on land, air, and water. <br>
+                <strong>Examples</strong> include spills, fire, flooding, breakage of equipment, power outages, gas
+                release, noise, pest invasion, chemical contamination. These risks need to be taken into consideration
+                when creating new objectives.
+            </p>
+
+
+            <div>
+                <table width="200">
+                    <caption>Risk Assessment Examples</caption>
+                    <tbody>
+                        <tr>
+                            <th>Environmental threats /possible emergencies resulting from business activity</th>
+
+                            <th>Negative impact on the environment
+                                USE LAW (Land, Air, Water)</th>
+
+                            <th>Is the probability for the negative impact occurring high, medium, or low?
+                                You decide the probability.</th>
+
+                            <th>If the impact occurs, will it be major, medium, or minor? You decide the level of
+                                impact.</th>
+                        </tr>
+
+                        <tr>
+                            <td>Oil spill during machine lubricating maintenance</td>
+
+                            <td>Land Pollution</td>
+
+                            <td>Medium</td>
+
+                            <td>Medium</td>
+                        </tr>
+
+                        <tr>
+                            <td>Water pipe breakage and flooding</td>
+
+                            <td>Land & Water Pollution</td>
+
+                            <td>Low</td>
+
+                            <td>Medium</td>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Machine breakage from overheating during heavy unplanned usage</td>
+
+                            <td>Air Land and Water Pollution</td>
+
+                            <td>Medium</td>
+
+                            <td>Major</td>
+                        </tr>
+
+                        <tr>
+                            <td>Idling trucks of emergency deliveries by new suppliers during Covid</td>
+
+                            <td>Air pollution</td>
+
+                            <td>High</td>
+
+                            <td>Medium</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <br><br>
+
+                <table width="200">
+                    <tbody>
+                        <tr>
+                            <th>Environmental threats /possible emergencies resulting from business activity</th>
+
+                            <th>Negative impact on the environment
+                                USE LAW (Land, Air, Water)</th>
+
+                            <th>Is the probability for the negative impact occurring high, medium, or low? You decide
+                                the probability</th>
+
+                            <th>If the impact occurs, will it be major, medium, or minor? You decide the level of
+                                impact.</th>
+                        </tr>
+
+                        <tr>
+                            <td>{% render_field formA.threat1 type="text" class="table-input" %}</td>
+
+                            <td>{{ formA.impact1 }}</td>
+
+                            <td>{{ formA.probability1 }}</td>
+
+                            <td>{{ formA.if_occurs1 }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{% render_field formA.threat2 type="text" class="table-input" %}</td>
+
+                            <td>{{ formA.impact2 }}</td>
+
+                            <td>{{ formA.probability2 }}</td>
+
+                            <td>{{ formA.if_occurs2 }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{% render_field formA.threat3 type="text" class="table-input" %}</td>
+
+                            <td>{{ formA.impact3 }}</td>
+
+                            <td>{{ formA.probability3 }}</td>
+
+                            <td>{{ formA.if_occurs3 }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{% render_field formA.threat4 type="text" class="table-input" %}</td>
+
+                            <td>{{ formA.impact4 }}</td>
+
+                            <td>{{ formA.probability4 }}</td>
+
+                            <td>{{ formA.if_occurs4 }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>{% render_field formA.threat5 type="text" class="table-input" %}</td>
+
+                            <td>{{ formA.impact5 }}</td>
+
+                            <td>{{ formA.probability5 }}</td>
+
+                            <td>{{ formA.if_occurs5 }}</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+
+
+            <br><br>
+
+            <br><br>
+            <div class="btns-group">
+                <a href="#" class="btn btn-next">Next</a>
+            </div>
+
+
+        </div>
+
+        <div class="form-step">    
+            <!-- Section 5 -->
+            <h3 style="color: green;">OBJECTIVES:</h3>
+            <p>These are the initiatives you are going to take to improve environmental performance – you create the
+                objectives for your business! All the work done until now is preparation in order to create annual
+                objectives. Carefully look at your environmental activities, aspects and impacts, and identify
+                opportunities to reduce negative impacts on land air and water.
+            </p>
+
+            <div>
+                <table width="200">
+                    <caption>Examples of Objectives </caption>
+                    <tbody>
+                        <tr>
+                            <th>Activity</th>
+
+                            <th>Aspect</th>
+
+                            <th>Objective</th>
+
+                            <th>Procedure</th>
+
+                            <th>Result
+                                Expected</th>
+
+                            <th>Start – End Date
+                                Responsibility</th>
+                        </tr>
+
+                        <tr>
+                            <td>Cutting panels and frames to size in batches, using electrical saws (12 stations)</td>
+
+                            <td>Using electricity </td>
+
+                            <td>Reduce by 6%</td>
+
+                            <td>Stop idling saws between batches</td>
+
+                            <td>WH saved:
+                                10,800
+                                $$ saved:
+                                $1,080.00
+                                CO2 saved:
+                                5,875 kg
+                            </td>
+
+                            <td>October 15
+                                ongoing <br> Jim Long
+                                Production Manager</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Cleaning offices and equipment</strong></td>
+
+                            <td>Using regular cleaners, some toxic</td>
+
+                            <td>Test efficacy of alternative cleaners</td>
+
+
+                            <td>Purchase
+                                Test new cleaners
+                            </td>
+
+                            <td>Go Ahead
+                                YES/NO
+                            </td>
+
+
+                            <td>November 30 <br>
+                                Mercedez Diaz
+                                Maintenance Manager</td>
+                        </tr>
+
+                        <tr>
+                            <td>Local sales calls travel to customers offices 150/year</td>
+
+                            <td>Using gasoline</td>
+
+                            <td>Reduce to 100/year based on COVID travel
+                                reduction experience</td>
+
+                            <td>New sales schedule created with customers and re-evaluation of results at year end</td>
+
+                            <td>Gasoline saved: <br>
+                                284,000 liters <br>
+                                $$ saved: <br>
+                                51,000 <br>
+                                CO2 saved: <br>
+                                10,794 Kg</td>
+
+                            <td>anuary 1 <br>
+                                Margarita Sally
+                                Sales Manager</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br>
+            <p>When setting objectives, take into account product lifecycle considerations, such as when buying raw
+                materials or disposal at end of life, including:
+            <ul>
+                <li>What is under the direct control of the business</li>
+                <li>What the business can influence indirectly</li>
+            </ul>
+            Examples include reducing, reusing or recycling. The choice of objectives can come from many sources such as
+            observation, suggestions, new knowledge, creative ideas. Think about <strong>SMART</strong> when documenting
+            your objectives: Specific, Measurable, Actionable, Realistic, Time-based. <br>
+            Choose carefully and avoid over promising. It is better to have a shorter realistic list of objectives than
+            under-delivering on a longer list (greenwashing). <br>
+            Create your carefully chosen Environmental Annual Objectives to reduce negative impacts on land, air, and
+            water, based on your activities, aspects and impacts. address significant aspects if you have any. A
+            resource list for creating objectives; calculation examples; and emission factors are found here.</p>
+
+
+
+            <table width="200">
+                <caption>Examples of Objectives </caption>
+                {% for asp in asp_imp  %}
+                <tbody>
+                    <tr>
+                        <th>Activity</th>
+
+                        <th>Aspect</th>
+
+                        <th>Objective</th>
+
+                        <th>Procedure</th>
+
+                        <th>Result
+                            Expected</th>
+
+                        <th>Start – End Date
+                            Responsibility</th>
+                    </tr>
+
+                    <tr>
+                        <td>{{ asp.activity_1 }}</td>
+
+                        <td>{{ asp.aspect_1 }}</td>
+
+                        <td>{% render_field formB.objective_1 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.procedure_1 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.result_1 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.start_date_1 type="text" class="table-input" %}</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>{{ asp.activity_2 }}</td>
+
+                        <td>{{ asp.aspect_2 }}</td>
+
+                        <td>{% render_field formB.objective_2 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.procedure_2 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.result_2 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.start_date_2 type="text" class="table-input" %}</td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>{{ asp.activity_3 }}</td>
+
+                        <td>{{ asp.aspect_3 }}</td>
+
+                        <td>{% render_field formB.objective_3 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.procedure_3 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.result_3 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.start_date_3 type="text" class="table-input" %}</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>{{ asp.activity_4 }}</td>
+
+                        <td>{{ asp.aspect_4 }}</td>
+
+                        <td>{% render_field formB.objective_4 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.procedure_4 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.result_4 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.start_date_4 type="text" class="table-input" %}</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>{{ asp.activity_5 }}</td>
+
+                        <td>{{ asp.aspect_5 }}</td>
+
+                        <td>{% render_field formB.objective_5 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.procedure_5 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.result_5 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.start_date_5 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ asp.activity_6 }}</td>
+
+                        <td>{{ asp.aspect_6 }}</td>
+
+                        <td>{% render_field formB.objective_6 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.procedure_6 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.result_6 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.start_date_6 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ asp.activity_7 }}</td>
+
+                        <td>{{ asp.aspect_7 }}</td>
+
+                        <td>{% render_field formB.objective_7 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.procedure_7 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.result_7 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.start_date_7 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ asp.activity_8 }}</td>
+
+                        <td>{{ asp.aspect_8 }}</td>
+
+                        <td>{% render_field formB.objective_8 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.procedure_8 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.result_8 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.start_date_8 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ asp.activity_9 }}</td>
+
+                        <td>{{ asp.aspect_9 }}</td>
+
+                        <td>{% render_field formB.objective_9 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.procedure_9 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.result_9 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.start_date_9 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ asp.activity_10 }}</td>
+
+                        <td>{{ asp.aspect_10 }}</td>
+
+                        <td>{% render_field formB.objective_10 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.procedure_10 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.result_10 type="text" class="table-input" %}</td>
+
+                        <td>{% render_field formB.start_date_10 type="text" class="table-input" %}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+
+            <h3>POLICY</h3>
+            <p>Your environmental policy is a statement of the overall environmental direction of your business. It is a
+                declaration of your commitment to the environment. Post it publicly, in locations of your choice such as
+                business office, website, social media platform, etc. <br>
+                The policy can be short or long, and the text is your choice, but it must include these commitments:
+            <ol>
+                <li>compliance with all applicable environmental laws and regulations</li>
+                <li>conformance with the ISO 14001:2015 Environmental Management Standard</li>
+                <li>continual improvement</li>
+            </ol>
+            </p>
+            <p>Each year, depending on the new objectives chosen, the policy should indicate the new environmental
+                direction of the business. Examples: reducing (further) energy use, purchasing (more) green materials,
+                doing more training. There is no requirement to disclose specific objectives. The policy is easiest to
+                formulate after the creation of the environmental objectives.</p>
+            <h5>An example of a simple company policy statement:</h5>
+            {% for name in buss_info %}
+            <p>
+                <strong>{{ name.buss_name }}</strong> Environmental Policy
+            </p>
+
+            <p>
+                <strong>{{ name.buss_name }}</strong> recognizes its responsibility to protect the environment as a
+                guiding principle and a key component of its business performance. We are committed to integrate the
+                consideration of the environment in all our decision making and activities.
+            </p>
+            <p>
+                <strong>{{ name.buss_name }}</strong> complies with all environmental laws and regulations affecting
+                its operations, conforms to and follows the ISO 14001:2015 Environmental Standard, commits to
+                continually improve.
+            </p>
+            <p>
+                <strong>{{ name.buss_name }}</strong> current objectives include:
+            </p>
+            {% endfor %}
+
+            {{ formC.current_objectives }}
+            <br> <br>
+            {% comment %} <input type="checkbox" name="">
+            <label for="">Reduce energy use</label><br>
+            <input type="checkbox" name="">
+            <label for="">Increase the efficient use of resources materials</label><br>
+            <input type="checkbox" name="">
+            <label for="">Environmental training to employees</label><br> {% endcomment %}
+            <br>
+            {% render_field formC.existing_policy type="text" class="table-input" placeholder="If you have an existing policy, copy and paste here!" %}
+
+            <br>
+            <input type="checkbox" name="commit">
+            <label for="commit">We commit to making our Environmental Policy publicly available. This can be done from your greenmark online dashboard. You can also download a PDF version of the policy from your dashboard.</label>
+
+            <h3>EMERGENCY RESPONSE</h3>
+            <p>To prevent and mitigate the environmental impacts associated with accidents and emergency situations, ISO 14001:2015 requires the establishment and maintenance of appropriate procedures. Such procedures may already be part of the business existing EMERGENCY PREPAREDNESS RESPONSE PLAN, possibly in more detail. Replace and add items as appropriate to your situation.</p>
+            <p><strong>Emergency response procedures need to be tested periodically and training needs to be provided to employees.</strong></p>
+
+            <div>
+                <table width="200">
+                    <caption>Environmental Annual Objectives to reduce negative impacts on land/air/water (add
+                        rows
+                        if needed for additional objectives, carefully chosen to ensure implementation):
+                    </caption>
+
+                    <tbody>
+                        <tr>
+                            <th>Potential Emergency</th>
+
+                            <th>Procedure</th>
+
+                            <th>Company Internal Contacts Info</th>
+
+                            <th>Outside Emergency Contacts Info</th>
+                        </tr>
+
+                        <tr>
+                            <th>Chemical contamination</th>
+                            <td>{% render_field formD.procedure_1 class="table-input" %} </td>
+                            <td>{% render_field formD.internal_contact_1 class="table-input" %} </td>
+                            <td>{% render_field formD.external_contact_1 class="table-input" %} </td>
+                        </tr>
+
+                        <tr>
+                            <th>Water flooding</th>
+                            <td>{% render_field formD.procedure_2 class="table-input" %} </td>
+                            <td>{% render_field formD.internal_contact_2 class="table-input" %} </td> </td>
+                            <td>{% render_field formD.external_contact_2 class="table-input" %} </td> </td>
+                        </tr>
+
+                        <tr>
+                            <th>Electrical outage</th>
+                            <td>{% render_field formD.procedure_3 class="table-input" %} </td>
+                            <td>{% render_field formD.internal_contact_3 class="table-input" %} </td> </td>
+                            <td>{% render_field formD.external_contact_3 class="table-input" %} </td> </td>
+                        </tr>
+
+                        <tr>
+                            <th>Pest infestation</th>
+                            <td>{% render_field formD.procedure_4 class="table-input" %} </td>
+                            <td>{% render_field formD.internal_contact_4 class="table-input" %} </td> </td>
+                            <td>{% render_field formD.external_contact_4 class="table-input" %} </td> </td>
+                        </tr>
+
+                        <tr>
+                            <th>Waste management</th>
+                            <td>{% render_field formD.procedure_5 class="table-input" %} </td>
+                            <td>{% render_field formD.internal_contact_5 class="table-input" %} </td> </td>
+                            <td>{% render_field formD.external_contact_5 class="table-input" %} </td> </td>
+                        </tr>
+
+                        <tr>
+                            <th>Other</th>
+                            <td>{% render_field formD.procedure_6 class="table-input" %} </td>
+                            <td>{% render_field formD.internal_contact_6 class="table-input" %} </td> </td>
+                            <td>{% render_field formD.external_contact_6 class="table-input" %} </td> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        
+            <div class="btns-group">
+                <a href="#" class="btn btn-prev">Previous</a>
+                <a href="#" class="btn btn-next">Next</a>
+            </div>
+        
+        </div>
+
+        <div class="form-step">
+            
+            <h3>NONCOMFORMITIES</h3>
+            <p>Nonconformities are incidents when actions and procedures put in place to achieve environmental objectives are not followed. Mistakes should be rare, but can happen, and ideally should not be repeated. When a nonconformity occurs, it requires corrective action, the steps you take to fix the problem of nonconformity:
+                <ul>
+                    <li>first, to describe what exactly happened</li>
+                    <li>next to find out why it happened</li>
+                    <li>then to create and put in place a solution that will avoid it from happening in the future</li>
+                    <li>finally, to document the process. Nonconformities are important learning during  audits when evaluating compliance with objectives. This is required to remain in compliance.</li>
+                </ul>
+            </p>
+
+            <p><u>Example of a documented nonconformity: <br>
+                Procedure: Do not idle electrical saw between batches</u></p>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Error details (what, when, where, who): <br>
+                            Electrical saw operator idled equipment between batches on second shift (date)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Root Cause (why): <br>
+                            - New temporary employee, did not receive proper procedure training when started work <br>
+                            - There is no training procedure in place for new temporary employees</td>
+                    </tr>
+
+                    <tr>
+                        <td>Corrective Action: <br>
+                            Include training procedure for new temporary employees as a step in the intake process and</td>
+                    </tr>
+
+                    <tr>
+                        <td> Correction Completed: <br>
+                            Done, communicated and documented within two/three weeks from non-compliance (dates)</td>
+                    </tr>
+                </tbody>
+            </table> <br>
+            <p>Discuss, fix, train, communicate, document and file every time an action or a procedure to achieve an objective is not followed.</p>
+
+            <h3>COMMUNICATION</h3>
+            <p>Communication of the Environmental Management System (EMS) internally is required to inform, train, enhance environmental teamwork, and achieve objectives.</p>
+
+
+            <table width="200">
+                <caption>Communication Log:</caption>
+
+                <tbody>
+                    <tr>
+                        <th>Subject</th>
+
+                        <th>How communicated</th>
+
+                        <th>Person responsible to communicate</th>
+
+                        <th>Who receives</th>
+
+                        <th>When</th>
+                    </tr>
+
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+            <table width="200">
+                <caption>Communication Log:</caption>
+
+                <tbody>
+                    <tr>
+                        <th>Subject</th>
+
+                        <th>How communicated</th>
+
+                        <th>Person responsible to communicate</th>
+
+                        <th>Who receives</th>
+
+                        <th>When</th>
+                    </tr>
+
+                    <tr>
+                        <td>{{ formE.subject_1 }} </td>
+                        <td>{% render_field formE.how_comm_1 class="table-input" %} </td>
+                        <td>{% render_field formE.person_resp_1 class="table-input" %} </td>
+                        <td>{% render_field formE.who_receives_1 class="table-input" %} </td>
+                        <td>{% render_field formE.when_1 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ formE.subject_2 }} </td>
+                        <td>{% render_field formE.how_comm_2 class="table-input" %} </td>
+                        <td>{% render_field formE.person_resp_2 class="table-input" %} </td>
+                        <td>{% render_field formE.who_receives_2 class="table-input" %} </td>
+                        <td>{% render_field formE.when_2 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ formE.subject_3 }} </td>
+                        <td>{% render_field formE.how_comm_3 class="table-input" %} </td>
+                        <td>{% render_field formE.person_resp_3 class="table-input" %} </td>
+                        <td>{% render_field formE.who_receives_3 class="table-input" %} </td>
+                        <td>{% render_field formE.when_3 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ formE.subject_4 }} </td>
+                        <td>{% render_field formE.how_comm_4 class="table-input" %} </td>
+                        <td>{% render_field formE.person_resp_4 class="table-input" %} </td>
+                        <td>{% render_field formE.who_receives_4 class="table-input" %} </td>
+                        <td>{% render_field formE.when_4 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ formE.subject_5 }} </td>
+                        <td>{% render_field formE.how_comm_5 class="table-input" %} </td>
+                        <td>{% render_field formE.person_resp_5 class="table-input" %} </td>
+                        <td>{% render_field formE.who_receives_5 class="table-input" %} </td>
+                        <td>{% render_field formE.when_5 class="table-input" %} </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>{{ formE.subject_6 }} </td>
+                        <td>{% render_field formE.how_comm_6 class="table-input" %} </td>
+                        <td>{% render_field formE.person_resp_6 class="table-input" %} </td>
+                        <td>{% render_field formE.who_receives_6 class="table-input" %} </td>
+                        <td>{% render_field formE.when_6 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ formE.subject_7 }} </td>
+                        <td>{% render_field formE.how_comm_7 class="table-input" %} </td>
+                        <td>{% render_field formE.person_resp_7 class="table-input" %} </td>
+                        <td>{% render_field formE.who_receives_7 class="table-input" %} </td>
+                        <td>{% render_field formE.when_7 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ formE.subject_8 }} </td>
+                        <td>{% render_field formE.how_comm_8 class="table-input" %} </td>
+                        <td>{% render_field formE.person_resp_8 class="table-input" %} </td>
+                        <td>{% render_field formE.who_receives_8 class="table-input" %} </td>
+                        <td>{% render_field formE.when_8 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ formE.subject_9 }} </td>
+                        <td>{% render_field formE.how_comm_9 class="table-input" %} </td>
+                        <td>{% render_field formE.person_resp_9 class="table-input" %} </td>
+                        <td>{% render_field formE.who_receives_9 class="table-input" %} </td>
+                        <td>{% render_field formE.when_9 class="table-input" %} </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br><br>
+            
+            <h3> Documentation</h3>
+            <p>The Environmental Management System (EMS) available in document format facilitates its implementation. Documentation management is important to enable achievement of environmental objectives and continual improvement. The Documentation Log supports the documentation function. Fill out and keep up-to-date with additions and other changes as needed.</p> <br>
+
+
+            <table width="200">
+                <caption>Communication Log:</caption>
+
+                <tbody>
+                    <tr>
+                        <th> Records Type/Name</th>
+                        <th> Main location</th>
+                        <th>Other location/links</th>
+                        <th> Person responsible</th>
+                        <th>Comments</th>
+                    </tr>
+
+                    <tr>
+                        <td>This document
+                            (current year EMS)</td>
+                        <td>{% render_field formF.main_location_1 class="table-input" %} </td>
+                        <td>{% render_field formF.other_location_1 class="table-input" %}</td>
+                        <td>{% render_field formF.person_resp_1 class="table-input" %}</td>
+                        <td>{% render_field formF.comments_1 class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <tr>
+                            <td>Prior year/s
+                                ISO 14001:2015 EMS</td>
+                            <td>{% render_field formF.main_location_2 class="table-input" %}</td>
+                            <td>{% render_field formF.other_location_2 class="table-input" %}</td>
+                            <td>{% render_field formF.person_resp_2 class="table-input" %}</td>
+                            <td>{% render_field formF.comments_2 class="table-input" %}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Regulatory permits and records</td>
+                            <td>{% render_field formF.main_location_3 class="table-input" %}</td>
+                            <td>{% render_field formF.other_location_3 class="table-input" %}</td>
+                            <td>{% render_field formF.person_resp_3 class="table-input" %}</td>
+                            <td>{% render_field formF.comments_3 class="table-input" %}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Other Compliance Obligations agreements</td>
+                            <td>{% render_field formF.main_location_4 class="table-input" %}</td>
+                            <td>{% render_field formF.other_location_4 class="table-input" %}</td>
+                            <td>{% render_field formF.person_resp_4 class="table-input" %}</td>
+                            <td>{% render_field formF.comments_4 class="table-input" %}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Policy Statement</td>
+                            <td>{% render_field formF.main_location_5 class="table-input" %}</td>
+                            <td>{% render_field formF.other_location_5 class="table-input" %}</td>
+                            <td>{% render_field formF.person_resp_5 class="table-input" %}</td>
+                            <td>{% render_field formF.comments_5 class="table-input" %}</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Objectives Planning Sheets
+                                (completed)</td>
+                            <td>{% render_field formF.main_location_6 class="table-input" %}</td>
+                            <td>{% render_field formF.other_location_6 class="table-input" %}</td>
+                            <td>{% render_field formF.person_resp_6 class="table-input" %}</td>
+                            <td>{% render_field formF.comments_6 class="table-input" %}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Emergency Response Procedures</td>
+                            <td>{% render_field formF.main_location_7 class="table-input" %}</td>
+                            <td>{% render_field formF.other_location_7 class="table-input" %}</td>
+                            <td>{% render_field formF.person_resp_7 class="table-input" %}</td>
+                            <td>{% render_field formF.comments_7 class="table-input" %}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Other Operational Procedures</td>
+                            <td>{% render_field formF.main_location_8 class="table-input" %}</td>
+                            <td>{% render_field formF.other_location_8 class="table-input" %}</td>
+                            <td>{% render_field formF.person_resp_8 class="table-input" %}</td>
+                            <td>{% render_field formF.comments_8 class="table-input" %}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Training Procedures</td>
+                            <td>{% render_field formF.main_location_9 class="table-input" %}</td>
+                            <td>{% render_field formF.other_location_9 class="table-input" %}</td>
+                            <td>{% render_field formF.person_resp_9 class="table-input" %}</td>
+                            <td>{% render_field formF.comments_9 class="table-input" %}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Quarterly Audits and Annual Review</td>
+                            <td>{% render_field formF.main_location_10 class="table-input" %}</td>
+                            <td>{% render_field formF.other_location_10 class="table-input" %}</td>
+                            <td>{% render_field formF.person_resp_10 class="table-input" %}</td>
+                            <td>{% render_field formF.comments_10 class="table-input" %}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Other documents</td>
+                            <td>{% render_field formF.main_location_11 class="table-input" %}</td>
+                            <td>{% render_field formF.other_location_11 class="table-input" %}</td>
+                            <td>{% render_field formF.person_resp_11 class="table-input" %}</td>
+                            <td>{% render_field formF.comments_11 class="table-input" %}</td>
+                        </tr>
+
+                </tbody>
+            </table>
+
+
+            <br><br>
+            <div class="btns-group">
+                <a href="#" class="btn btn-prev">Previous</a>
+                <button type="submit" class="btn">Submit & Contiue</button>
+            </div>
+        </div>
+
+
+    
+
+
+</form>
+
+{% endblock content %}

@@ -5,241 +5,489 @@
 {% block title %}PLAN{% endblock title %}
 
 {% block content %}
-
+<br> 
 <div class="container">
-    <h3>Back to dashboard</h3>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">STEP 1 - PLAN</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'accounts:dashboard' %}">Back to dashboard</a></li>
+        </ol>
+    </nav>
 </div>
 
-<form class="form">
 
-<div class="progressbar">
-    <div class="progress" id="progress"></div>
+<form class="form" method="post">
+    {% csrf_token %}
+    <h2>STEP 1 - Plan</h2>
+    <div class="progressbar">
+        <div class="progress" id="progress"></div>
 
-    <div class="progress-step" data-title="GET STARTED"></div>
-    <div class="progress-step  progress-step-active" data-title="PLAN"></div>
-    <div class="progress-step" data-title="DO"></div>
-    <div class="progress-step" data-title="CHECK"></div>
-    <div class="progress-step" data-title="ACT"></div>
-</div>
-
-<div class="">
-    <p><strong>Plan-</strong> BUSINESS INFORMATION</p>
-    <div class="business_logo">
-        <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
-                style="display: none;"></p>
-        <p><label class="upload_logo" for="file" style="cursor: pointer;">Click here to Upload your logo</label>
-        </p>
-        <p class="logo_output"><img id="output" width="200" /></p>
+        <div class="progress-step progress-step-active"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
     </div>
 
-    <div class="input-group">
-        <label for="username">Business Name:</label>
-        <input type="text" name="username" id="business-name" class="input" />
-    </div>
-
-    <div class="input-group">
-        <label for="username">Phone Number:</label>
-        <input type="number" name="username" id="business-name" class="input" />
-    </div>
-
-    <div class="input-group">
-        <label for="sername">Website:</label>
-        <input type="text" name="username" id="business-name" class="input" />
-    </div>
-
-    <div>
-        <h4>Conforming to ISO 14001:2015</h4>
-        <h2>SCOPE</h2>
-        <P>Physical location(s) to which the system applies: <strong>ISif you do business in more than one
-                location, list all locations, including office</strong></P>
-        <label for="">Title</label>
-        <input type="text" class="input-new"></input> <br>
-
-        <label for="">Location Name</label>
-        <input type="text" class="input-new"></input> <br>
-
-        <label for="">Address</label>
-        <input type="text" class="input-new"></input>
-
-        <p><strong>Key Decision Maker(s) responsible for the system:</strong>leading, policy, budget,
-            objectives, implementation, quarterly auditing and annual review:</p>
-
-        <label for="">Name</label>
-        <input type="text" class="input-new"></input> <br>
-
-        <label for="">Email Address</label>
-        <input type="email" class="input-new"></input> <br>
-
-        <div class="business_logo">
+    <div class="form-step form-step-active">
+        <p><strong>Plan-</strong> BUSINESS INFORMATION</p>
+        {% comment %} <div class="business_logo">
             <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
                     style="display: none;"></p>
-            <p><label class="upload_logo" for="file" style="cursor: pointer;">Click here to Upload
-                    Signature</label>
+            <p><label class="upload_logo" for="file" style="cursor: pointer;">Click here to Upload your logo</label>
             </p>
             <p class="logo_output"><img id="output" width="200" /></p>
+        </div> {% endcomment %}
+        
+        <div class="input-group">
+            <label for="username">Business Name:</label>
+            {% render_field formA.buss_name type="text" name="username" id="business-name" class="input" %}
         </div>
 
+        <div class="input-group">
+            <label for="username">Phone Number:</label>
+            {% render_field formA.phone type="text" name="username" id="business-name" class="input" %}
+        </div>
 
-        <p><strong>Environmental Manager responsible for day to day system operation</strong></p>
+        <div class="input-group">
+            <label for="sername">Website:</label>
+            {% render_field formA.website type="text" name="username" id="business-name" class="input" %}
+        </div>
 
-        <label for="">Name</label>
-        <input type="text" class="input-new"></input> <br>
-
-        <label for="">Title</label>
-        <input type="text" class="input-new"></input> <br>
-
-        <label for="">Phone Number</label>
-        <input type="number" class="input-new"></input> <br>
-
-        <label for="">Email Address</label>
-        <input type="email" class="input-new"></input> <br>
-
-        <div class="business_logo">
-            <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
-                    style="display: none;"></p>
-            <p><label class="upload_logo" for="file" style="cursor: pointer;">Click here to Upload
-                    Signature</label>
-            </p>
-            <p class="logo_output"><img id="output" width="200" /></p>
+        <div class="input-group">
+            <label for="username">This agreement is made on this day (Date):</label>
+            {% render_field formA.year_of_aggrement type="Date" class="input" %}
         </div>
 
         <div>
-            <h2>COMPLIANCE OBLIGATIONS</h2>
-            <h4>Environmental Legal and Regulatory:</h4>
-            <P>abides by all environmental laws and regulations pertaining to its operations, including the
-                following:
-            <ul>
-                <li>Federal: We comply with the Canadian Environmental Protection Act.</li>
+            <h4>Conforming to ISO 14001:2015</h4>
+            <h2>SCOPE</h2>
+            <p>Physical location(s) to which the system applies: <strong>ISif you do business in more than one
+                    location, list all locations, including office</strong></p>
+         
+              <div class="repeatDiv" id="repeatDiv">
+                  <label for="">Location Name</label> 
+                  {% render_field formD.location class="input" %} <br>
+                  <label for="">Phone Number</label>
+                  {% render_field formD.phone class="input" %} <br>
+                  <label for="">Address</label>
+                  {% render_field formD.address class="input" %} <br> 
+                  <hr>
+              </div>
+               
 
-                <li>Provincial: We comply with the Provincial Environmental Acts.</li>
+              <button type="button" class="btn btn-success" id="repeatDivBtn" data-increment="1">Add More Input</button> 
+                <br>
+            
+            <br>
+            
+            <p><strong>Key Decision Maker responsible for the system:</strong>leading, policy, budget,
+                objectives, implementation, quarterly auditing and annual review:</p>
 
-                <li>Municipal: We comply with all environmental municipal bylaws pertaining to our operations,
-                    including the handling of waste, water, air, and all permitting requirements applicable.
-                </li>
-            </ul>
-            </P>
+            <label for="">Name</label>
+            {% render_field formA.keydecider_name type="text" class="input" %} <br>
 
-            <p><strong>Person/s responsible for Environmental Legal Compliance</strong></p>
-            <input type="radio" id="" name="" value="HTML">
-              <label for="html">Same as key decision maker</label><br>
+            <label for="">Title</label>
+            {% render_field formA.keydecider_title type="text" class="input" %} <br>
 
-            <input type="radio" id="" name="" value="HTML">
-              <label for="html">
-                Same as environmental manager</label><br>
+            <label for="">Email Address</label>
+            {% render_field formA.keydecider_email type="text" class="input" %} <br>
+            
+            <label for="">Signature</label>
+            {% render_field formA.keydecider_signature type="text" class="input" %} <br>
 
-            <input type="radio" id="" name="" value="HTML">
-              <label for="html">Other</label><br>
+            {% comment %} <div class="business_logo">
+                <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
+                        style="display: none;"></p>
+                <p><label class="upload_logo" for="file" style="cursor: pointer;">Click here to Upload
+                        Signature</label>
+                </p>
+                <p class="logo_output"><img id="output" width="200" /></p>
+            </div> {% endcomment %}
+
+
+            <p><strong>Environmental Manager responsible for day to day system operation</strong></p>
+
+            <label for="">Name</label>
+            {% render_field formA.envmanager_name type="text" class="input" %} <br>
+
+            <label for="">Title</label>
+            {% render_field formA.envmanager_title type="text" class="input" %} <br>
+
+            <label for="">Email Address</label>
+            {% render_field formA.envmanager_email type="text" class="input" %} <br>
+
+            <label for="">Signature</label>
+            {% render_field formA.envmanager_signature type="text" class="input" %} <br>
+
+            {% comment %} <div class="business_logo">
+                <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
+                        style="display: none;"></p>
+                <p><label class="upload_logo" for="file" style="cursor: pointer;">Click here to Upload
+                        Signature</label>
+                </p>
+                <p class="logo_output"><img id="output" width="200" /></p>
+            </div> {% endcomment %}
+        </div>
+            <br><br>
+            <div class="btns-group">
+                <a href="#" class="btn btn-next">Next</a>
+            </div>
+    </div>
+
+        <div class="form-step">    
+            
+                <h2>COMPLIANCE OBLIGATIONS</h2>
+                <h4>Environmental Legal and Regulatory:</h4>
+                <P>abides by all environmental laws and regulations pertaining to its operations, including the
+                    following:
+                <ul>
+                    <li>Federal: We comply with the Canadian Environmental Protection Act.</li>
+
+                    <li>Provincial: We comply with the Provincial Environmental Acts.</li>
+
+                    <li>Municipal: We comply with all environmental municipal bylaws pertaining to our operations,
+                        including the handling of waste, water, air, and all permitting requirements applicable.
+                    </li>
+                </ul>
+                </P>
+
+                <p><strong>Person/s responsible for Environmental Legal Compliance</strong></p>
+                {{ formB.person_rep }}
+
+                 {% comment %} <input type="radio" id="1" name="" value="HTML">
+                  <label for="html1">Same as key decision maker</label><br>
+
+                <input type="radio" id="2" name="" value="HTML">
+                  <label for="html2">
+                    Same as environmental manager</label><br>
+
+                <input type="radio" id="3" name="" value="HTML">
+                  <label for="html3">Other</label><br>  {% endcomment %}
+
+                    <br>
+                    <input type="radio" name="colorRadio" value="C"> Others</label><br>
+
+
+                <div  class="C selectt">
+                    <label for="">Name</label>
+                    {% render_field formA.otherresp_person_name type="text" class="input" %} <br>
+
+                    <label for="">Title</label>
+                    {% render_field formA.otherresp_person_title type="text" class="input" %} <br>
+
+                    <label for="">Email Address</label>
+                    {% render_field formA.otherresp_person_email type="text" class="input" %} <br>
+
+                    <label for="">Signature</label>
+                    {% render_field formA.otherresp_person_signature type="text" class="input" %} <br>
+
+                </div>
+
+            
 
             <div>
-                <label for="">Name</label>
-                <input type="text" class="input-new"></input> <br>
+                <h3><u>Other Environmental Compliance Obligations:</u></h3>
+                <p><i>Examples:</i></p>
+                <ul>
+                    <li>agreement with cleaning service company to use non-toxic cleaning products</li>
 
-                <label for="">Title</label>
-                <input type="text" class="input-new"></input> <br>
+                    <li>agreement with customer to ship in reusable pallets.</li>
+                </ul>
 
-                <label for="">Phone Number</label>
-                <input type="number" class="input-new"></input> <br>
+                <table>
+                    <caption>List agreements, if you have any</caption>
+                    <tr>
+                        <th>Name </th>
+                        <th>Name Agreement description and location to written agreement </th>
+                    </tr>
 
-                <label for="">Email Address</label>
-                <input type="email" class="input-new"></input> <br>
+                    <tr>
+                        <td>{% render_field formB.comp_oblig_name_1 type="text" class="table-input" %}</td>
+                        <td>{% render_field formB.comp_oblig_description_1 type="text" class="table-input" %}</td>
+                    </tr>
 
+                    <tr>
+                        <td>{% render_field formB.comp_oblig_name_2 type="text" class="table-input" %}</td>
+                        <td>{% render_field formB.comp_oblig_description_2 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formB.comp_oblig_name_3 type="text" class="table-input" %}</td>
+                        <td>{% render_field formB.comp_oblig_description_3 type="text" class="table-input" %}</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>{% render_field formB.comp_oblig_name_4 type="text" class="table-input" %}</td>
+                        <td>{% render_field formB.comp_oblig_description_4 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formB.comp_oblig_name_5 type="text" class="table-input" %}</td>
+                        <td>{% render_field formB.comp_oblig_description_5 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formB.comp_oblig_name_6 type="text" class="table-input" %}</td>
+                        <td>{% render_field formB.comp_oblig_description_6 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formB.comp_oblig_name_7 type="text" class="table-input" %}</td>
+                        <td>{% render_field formB.comp_oblig_description_7 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formB.comp_oblig_name_8 type="text" class="table-input" %}</td>
+                        <td>{% render_field formB.comp_oblig_description_8 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formB.comp_oblig_name_9 type="text" class="table-input" %}</td>
+                        <td>{% render_field formB.comp_oblig_description_9 type="text" class="table-input" %}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formB.comp_oblig_name_10 type="text" class="table-input" %}</td>
+                        <td>{% render_field formB.comp_oblig_description_10 type="text" class="table-input" %}</td>
+                    </tr>
+                </table>
             </div>
 
-        </div>
+            <div>
+                <h3>Interested Parties Environmental Communications:</h3>
+                <p>List 3 examples of environmental suggestions, positive feedback, complaints, or requests from
+                    your customers, the public, and others.</p>
 
-        <div>
-            <h3><u>Other Environmental Compliance Obligations:</u></h3>
-            <p><i>Examples:</i></p>
-            <ul>
-                <li>agreement with cleaning service company to use non-toxic cleaning products</li>
+                    {{ formB.env_comm_option }}
+                {% comment %} <label for="gender"> Select from these options</label>
+                <select name="gender" class="input-new">
+                    <option value="none" selected>Gender</option>
+                    <option value="male">Positve Feedback</option>
+                    <option value="female">Complaints or Request</option>
+                </select> {% endcomment %}
 
-                <li>agreement with customer to ship in reusable pallets.</li>
-            </ul>
+                <label for="">Name</label>
+                    {% render_field formB.env_comm_description type="text" class="input" %} <br>
 
-            <table>
-                <caption>List agreements, if you have any</caption>
-                <tr>
-                    <th>Name </th>
-                    <th>Name Agreement description and location to written agreement </th>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="table-input"></td>
-                    <td><input type="text" class="table-input"></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="table-input"></td>
-                    <td><input type="text" class="table-input"></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="table-input"></td>
-                    <td><input type="text" class="table-input"></td>
-                </tr>
-
-
-                <tr>
-                    <td><input type="text" class="table-input"></td>
-                    <td><input type="text" class="table-input"></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="table-input"></td>
-                    <td><input type="text" class="table-input"></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="table-input"></td>
-                    <td><input type="text" class="table-input"></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="table-input"></td>
-                    <td><input type="text" class="table-input"></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="table-input"></td>
-                    <td><input type="text" class="table-input"></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="table-input"></td>
-                    <td><input type="text" class="table-input"></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="table-input"></td>
-                    <td><input type="text" class="table-input"></td>
-                </tr>
-            </table>
-        </div>
-
-        <div>
-            <h3>Interested Parties Environmental Communications:</h3>
-            <p>List 3 examples of environmental suggestions, positive feedback, complaints, or requests from
-                your customers, the public, and others.</p>
-            <label for="gender"> Select from these options</label>
-            <select name="gender" class="input-new">
-                <option value="none" selected>Gender</option>
-                <option value="male">Positve Feedback</option>
-                <option value="female">Complaints or Request</option>
-            </select>
-
-        </div>
-
-
-
-    </div>
-</div>
+            </div>
 
 
             <br><br>
             <div class="btns-group">
-                <a href="{% url 'main:iso_buss_info' %}" class="btn btn-next">Next</a>
+                <a href="#" class="btn btn-prev">Previous</a>
+                <a href="#" class="btn btn-next">Next</a>
             </div>
-       
+        </div>
+        
+
+        
+    <div class="form-step">
+        <h2>ACTIVITIES, ASPECTS AND IMPACTS</h2>
+        <p><strong> ISO 14001:2015</strong> requires us to identify our environmental aspects and impacts resulting
+            from our activities.</p>
+
+        <h3>WHAT IS ENVIRONMENTAL?</h3>
+        <img src="images/Law-of-Nature.png" style="width:900px" alt="Law-of-Nature">
+        <h3>LAND AIR WATER </h3>
+        <p>The LAW of Nature (easy to remember)</p>
+
+        <p>ASPECTS: Our interactions with the environment while performing our business activities. An easy way to
+            remember: <br>
+        <ul>
+            <li>Aspects are what we take from or dump on the environment.</li>
+            <li>What we discharge to the environment></li>
+        </ul>
+        </p>
+
+
+        <p><strong> Examples. taking:</strong> water, electricity, natural gas, wood.</p>
+
+        <p><strong> Examples of discharging:</strong>contaminated water, material waste, exhaust</p>
+
+        <p>The results of activities affecting positively the environment:
+        <ul>
+            <li>reduced land pollution</li>
+            <li>reduced air pollution</li>
+            <li>reduced water pollution</li>
+        </ul>
+        </p>
+
+
+        <table>
+            <caption>Examples of Aspects and Impacts:</caption>
+            <tr>
+                <th>Activities</th>
+                <th>Aspects </th>
+                <th>Impacts</th>
+            </tr>
+
+            <tr>
+                <td>Cutting panels with electrical saw</td>
+                <td> Using electricity <br>
+                    Discharging scrap pieces to landfill <br>Using water to clean edges</td>
+                <td>Air pollution <br> Land pollution </td>
+            </tr>
+
+            <tr>
+                <td>Using non-recyclable shipping bins Dumping plastic Land pollution</td>
+                <td>Duping plastic</td>
+                <td>Land pollution</td>
+            </tr>
+
+            <tr>
+                <td>Heating and cooling building </td>
+                <td>Using natural gas</td>
+                <td>Land pollution</td>
+            </tr>
+
+
+            <tr>
+                <td>Travel to office and sales calls</td>
+                <td>Using gasoline</td>
+                <td>Air pollution</td>
+            </tr>
+
+            <tr>
+                <td>Travel by car to office& sales calls </td>
+                <td>Using gasoline</td>
+                <td>Air pollution</td>
+            </tr>
+
+            <tr>
+                <td><strong>Cleaning offices</strong></td>
+                <td><strong>Using toxic cleaners*</strong></td>
+                <td><strong>Land, Air Water pollution (LAW)</strong></td>
+            </tr>
+
+            <tr>
+                <td>Print sales brochures, 1000/year </td>
+                <td>Using trees, water, electricity LAW pollution</td>
+                <td>LAW pollution</td>
+            </tr>
+
+            <tr>
+                <td>Computers use, 6 workstations</td>
+                <td>Using electricity</td>
+                <td>Air pollution</td>
+            </tr>
+
+            <tr>
+                <td>Truck deliveries 3/week</td>
+                <td>Using gasoline</td>
+                <td>LAW pollution</td>
+            </tr>
+
+            <tr>
+                <td>Buy regular printing paper</td>
+                <td>Using trees, water, electricity </td>
+                <td>LAW pollution</td>
+            </tr>
+
+            <tr>
+                <td>Leaving lights on at night</td>
+                <td>Using electricity</td>
+                <td>Air pollution</td>
+            </tr>
+
+            <tr>
+                <td><strong>Painting frames of cut panels</strong> </td>
+                <td><strong>Using toxic paints*</strong></td>
+                <td><strong>LAW pollution</strong></td>
+            </tr>
+        </table>
+
+        <p>Now look at your business activities and identify what you take from, or discharge to the environment,
+            and what the impacts these activities have on land/air/water. Basically, you are taking a picture of
+            “now”. It will help you create objectives: Using the examples in the table above, create the list of
+            your own ongoing business activities, aspects and impacts below. The list should be from all areas of
+            the business. Activities should be clearly described and detailed enough to enable easy identification
+            of aspects and impacts. The order does not matter.</p>
+
+        <table>
+            <caption>Examples of Aspects and Impacts:</caption>
+            <tr>
+                <th>Activities</th>
+                <th>Aspects </th>
+                <th>Impacts</th>
+            </tr>
+
+            <tr>
+                <td>{% render_field formC.activity_1 type="text" class="table-input" %}</td>
+                <td>{% render_field formC.aspect_1 type="text" class="table-input" %}</td>
+                <td>{{ formC.impact_1 }}</td>
+            </tr>
+
+            <tr>
+                <td>{% render_field formC.activity_2 type="text" class="table-input" %}</td>
+                <td>{% render_field formC.aspect_2 type="text" class="table-input" %}</td>
+                <td>{{ formC.impact_2 }}</td>
+            </tr>
+
+            <tr>
+                <td>{% render_field formC.activity_3 type="text" class="table-input" %}</td>
+                <td>{% render_field formC.aspect_3 type="text" class="table-input" %}</td>
+                <td>{{ formC.impact_3 }}</td>
+            </tr>
+
+
+            <tr>
+                <td>{% render_field formC.activity_4 type="text" class="table-input" %}</td>
+                <td>{% render_field formC.aspect_4 type="text" class="table-input" %}</td>
+                <td>{{ formC.impact_4 }}</td>
+            </tr>
+
+            <tr>
+                <td>{% render_field formC.activity_5 type="text" class="table-input" %}</td>
+                <td>{% render_field formC.aspect_5 type="text" class="table-input" %}</td>
+                <td>{{ formC.impact_5 }}</td>
+            </tr>
+
+            <tr>
+                <td>{% render_field formC.activity_6 type="text" class="table-input" %}</td>
+                <td>{% render_field formC.aspect_6 type="text" class="table-input" %}</td>
+                <td>{{ formC.impact_6 }}</td>
+            </tr>
+
+            <tr>
+                <td>{% render_field formC.activity_7 type="text" class="table-input" %}</td>
+                <td>{% render_field formC.aspect_7 type="text" class="table-input" %}</td>
+                <td>{{ formC.impact_7 }}</td>
+            </tr>
+
+            <tr>
+                <td>{% render_field formC.activity_8 type="text" class="table-input" %}</td>
+                <td>{% render_field formC.aspect_8 type="text" class="table-input" %}</td>
+                <td>{{ formC.impact_8 }}</td>
+            </tr>
+
+            <tr>
+                <td>{% render_field formC.activity_9 type="text" class="table-input" %}</td>
+                <td>{% render_field formC.aspect_9 type="text" class="table-input" %}</td>
+                <td>{{ formC.impact_9 }}</td>
+            </tr>
+
+            <tr>
+                <td>{% render_field formC.activity_10 type="text" class="table-input" %}</td>
+                <td>{% render_field formC.aspect_10 type="text" class="table-input" %}</td>
+                <td>{{ formC.impact_10 }}</td>
+            </tr>
+
+        </table>
+
+        <h3 style="color: green;">*Significant Aspects and Impacts</h3>
+        <p>ISO 14001:2015 requires to us identify high-priority negative aspects and impacts on land, air or water.
+            Examples include dumping paint, releasing toxins to air, contaminating water. There are two examples of
+            Aspects and Impacts in the table above, which are bolded. You decide <strong>*which of your business
+                aspects have significant impacts</strong> on the environment, using your judgement.</p>
+
+        <br><br>
+        <div class="btns-group">
+            <a href="#" class="btn btn-prev">Previous</a>
+            <button type="submit" class="btn">Submit & Contiue</button>
+        </div>
+
+    </div>
+
 
 </form>
 

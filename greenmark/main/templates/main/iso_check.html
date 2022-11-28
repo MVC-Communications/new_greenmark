@@ -1,0 +1,148 @@
+{% extends 'main/iso_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Check{% endblock title %}
+
+{% block content %}
+<br> 
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">STEP 3 - Check</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'accounts:dashboard' %}">Back to dashboard</a></li>
+        </ol>
+    </nav>
+</div>
+
+
+<form class="form" method="post">
+    {% csrf_token %}
+    <h2>STEP 3 - Check</h2>
+
+    <br>
+
+    <!-- Section for CHECK -->
+    <h2>AUDITS AND ANNUAL MANAGEMENT REVIEW</h2>
+            <p>Auditing is a key part of the ISO 14001:2015 System. Its function is to evaluate performance against the objectives that were chosen at the beginning of your annual cycle and conformance with compliance obligations.  The major audit is at the end of the year when all objectives are to be fully completed. To ensure compliance, periodic audits - at the end of every quarter - are undertaken during the year, to look at progress in achieving objectives.  The auditors are people working in the business, and no special auditing qualifications are necessary. Ideally another person than the one responsible for the objective should do the audit for the objective being evaluated. Auditors can be different people at different checkpoints.  As part of your annual subscription, greenmark will review your audit results.</p>
+
+            <p><strong>Note:</strong> the <strong>ISO 14001:2015</strong>  Standard does not require, nor does it favour the option of using official registrars over the options of self-declaration or other third party.  Below please find an example of periodic audits followed by blanks to be filled out at the end of each period and at the end of the year. <br>
+            <strong>In this example</strong> the company started its ISO 14001:2015 Environmental Management on September 1st. <strong> (Note that the start can be at any time during the year).</strong></p>
+
+            <p><strong>Checkpoint 1 Example:</strong>for a company starting its EMS (Environmental Management System) on September 1, 2022: <br>
+            First Quarter Audit for the period September 1 – November 30,2022, <br>
+            <strong> Annual cycle:</strong> September 1 2022 – August 31 2023 <br>
+            <strong> Auditor:</strong> Mercedez Garcia <br>
+                
+            <strong>Signature</strong>
+            <strong>Date</strong> (up to three weeks delay from end of first cycle accpetalbe)</p>
+                
+            <br>
+            <table width="200">
+                <caption>Communication Log:</caption>
+
+                <tbody>
+                    <tr>
+                        <th>Objectives</th>
+
+                        <th>Start Date committed to:</th>
+
+                        <th>Achievement evaluation
+                            to-date</th>
+
+                        <th>Comments/
+                            Next steps recommended</th>
+                    </tr>
+
+                    <tr>
+                        <td>Turn off lights nightly (at the end of the workday)</td>
+                        <td>October 30 2022</td>
+                        <td>Completed successfully</td>
+                        <td>Ensure continued implementation</td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formA.objective_1 class="table-input" %} </td>
+                        <td>{% render_field formA.start_date_1 type="Date" class="table-input" %} </td>
+                        <td>{% render_field formA.achievement_1 class="table-input" %} </td>
+                        <td>{% render_field formA.comment_1 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formA.objective_2 class="table-input" %} </td>
+                        <td>{% render_field formA.start_date_2 type="Date" class="table-input" %} </td>
+                        <td>{% render_field formA.achievement_2 class="table-input" %} </td>
+                        <td>{% render_field formA.comment_2 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formA.objective_3 class="table-input" %} </td>
+                        <td>{% render_field formA.start_date_3 type="Date" class="table-input" %} </td>
+                        <td>{% render_field formA.achievement_3 class="table-input" %} </td>
+                        <td>{% render_field formA.comment_3 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formA.objective_4 class="table-input" %} </td>
+                        <td>{% render_field formA.start_date_4 type="Date" class="table-input" %} </td>
+                        <td>{% render_field formA.achievement_4 class="table-input" %} </td>
+                        <td>{% render_field formA.comment_4 class="table-input" %} </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>{% render_field formA.objective_5 class="table-input" %} </td>
+                        <td>{% render_field formA.start_date_5 type="Date" class="table-input" %} </td>
+                        <td>{% render_field formA.achievement_5 class="table-input" %} </td>
+                        <td>{% render_field formA.comment_5 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formA.objective_6 class="table-input" %} </td>
+                        <td>{% render_field formA.start_date_6 type="Date" class="table-input" %} </td>
+                        <td>{% render_field formA.achievement_6 class="table-input" %} </td>
+                        <td>{% render_field formA.comment_6 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formA.objective_7 class="table-input" %} </td>
+                        <td>{% render_field formA.start_date_7 type="Date" class="table-input" %} </td>
+                        <td>{% render_field formA.achievement_7 class="table-input" %} </td>
+                        <td>{% render_field formA.comment_7 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formA.objective_8 class="table-input" %} </td>
+                        <td>{% render_field formA.start_date_8 type="Date" class="table-input" %} </td>
+                        <td>{% render_field formA.achievement_8 class="table-input" %} </td>
+                        <td>{% render_field formA.comment_8 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formA.objective_9 class="table-input" %} </td>
+                        <td>{% render_field formA.start_date_9 type="Date" class="table-input" %} </td>
+                        <td>{% render_field formA.achievement_9 class="table-input" %} </td>
+                        <td>{% render_field formA.comment_9 class="table-input" %} </td>
+                    </tr>
+
+                    <tr>
+                        <td>{% render_field formA.objective_10 class="table-input" %} </td>
+                        <td>{% render_field formA.start_date_10 type="Date" class="table-input" %} </td>
+                        <td>{% render_field formA.achievement_10 class="table-input" %} </td>
+                        <td>{% render_field formA.comment_10 class="table-input" %} </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+
+
+        <br><br>
+        <div class="btns-group">
+            <button type="submit" class="btn">Submit & Contiue</button>
+        </div>
+    </div>
+
+
+</form>
+
+{% endblock content %}
