@@ -1,0 +1,933 @@
+{% extends 'main/iso_base.html' %}
+{% load static %}
+
+{% block title %} Your Submission {% endblock title %}
+
+{% block content %}
+<br>
+<div class="container">
+    <h2 class="text-center">THE ISO 14001:2015 ENVIRONMENTAL MANAGEMENT SYSTEM</h2>
+    <hr>
+</div>
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="btn btn-warning" href="{% url 'accounts:admin-dashboard' %}">Back to dashboard</a></li>
+        <li class="breadcrumb-item"> <button class="btn btn-success" id="download">Download Document in PDF</button> </li>
+        </ol>
+    </nav>
+</div>
+<br>
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">PLAN</h4>
+        <hr>
+        <p class="mb-0">Business Information, Scope and Commitment, Compliance Obligations, Activities, Aspects and Impacts</p>
+    </div>
+</div>
+{% for plan in modelA %}
+<div class="container">
+    <div class="card border-success" role="alert">
+        <h5 class="card-header">Business Information</h5>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <p class="card-text">Business Name: <strong> {{ plan.buss_name }} </strong> </p>
+                </div>
+                <div class="col-sm-4">
+                    <p class="card-text">Phone Number: <strong> {{ plan.phone }} </strong> </p>
+                </div>
+                <div class="col-sm-4">
+                    <p class="card-text">Website: <strong> {{ plan.website }} </strong> </p>
+                </div>
+            </div>   
+          <hr>
+
+          <h6 class="card-title">Conforming to ISO 14001:2015</h6>
+          <p class="card-text">Physical location(s) to which the system applies: </p>
+          <div class="row">
+            {% for loc in modelK %}
+            <div class="col-sm-4">
+                  <p class="card-text">Location Name: <strong> {{ loc.location }} </strong> </p>
+                  <p class="card-text">Phone Number: <strong> {{ loc.phone }} </strong> </p>
+                  <p class="card-text">Address <strong> {{ loc.address }} </strong> </p>
+            </div>
+            {% endfor %}
+          </div>
+          
+          <hr>
+          <div class="row">
+            <div class="col-sm-4">
+                <p><strong>Key Decision Maker responsible for the system:</strong> leading, policy, budget,
+                    objectives, implementation, quarterly auditing and annual review:</p>
+                  <p class="card-text">Name: <strong> {{ plan.keydecider_name }} </strong> </p>
+                  <p class="card-text">Title: <strong> {{ plan.keydecider_title }} </strong> </p>
+                  <p class="card-text">Email Address: <strong> {{ plan.keydecider_email }} </strong> </p>
+                  <p class="card-text">Signature: <strong> {{ plan.keydecider_signature }} </strong> </p>
+                  
+            </div>
+            <div class="col-sm-4">
+                <p><strong>Environmental Manager responsible for day to day system operation</strong></p>
+                  <p class="card-text">Name: <strong> {{ plan.envmanager_name }} </strong> </p>
+                  <p class="card-text">Title: <strong> {{ plan.envmanager_title }} </strong> </p>
+                  <p class="card-text">Email Address: <strong> {{ plan.envmanager_email }} </strong> </p>
+                  <p class="card-text">Signature: <strong> {{ plan.envmanager_signature }} </strong> </p>
+            </div>
+            <div class="col-sm-4">
+              <p><strong>Other Person responsible for Environmental Legal Compliance</strong></p>
+              <p class="card-text">Name: <strong> {{ plan.otherresp_person_name }} </strong> </p>
+              <p class="card-text">Title: <strong> {{ plan.otherresp_person_title }} </strong> </p>
+              <p class="card-text">Email Address: <strong> {{ plan.otherresp_person_email }} </strong> </p>
+              <p class="card-text">Signature: <strong> {{ plan.otherresp_person_signature }} </strong> </p>
+            </div>
+        </div>   
+        </div>
+    </div>
+</div>
+{% endfor %}
+<br>
+{% for plan in modelB %}
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">Environmental Compliance Obligations:</h5>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Name Agreement description and location to written agreement </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{ plan.comp_oblig_name_1 }}</td>
+                    <td>{{ plan.comp_oblig_description_1 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>{{ plan.comp_oblig_name_2 }}</td>
+                    <td>{{ plan.comp_oblig_description_2 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>{{ plan.comp_oblig_name_3 }}</td>
+                    <td>{{ plan.comp_oblig_description_3 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>{{ plan.comp_oblig_name_4 }}</td>
+                    <td>{{ plan.comp_oblig_description_4 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>{{ plan.comp_oblig_name_5 }}</td>
+                    <td>{{ plan.comp_oblig_description_5 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>{{ plan.comp_oblig_name_6 }}</td>
+                    <td>{{ plan.comp_oblig_description_6 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>{{ plan.comp_oblig_name_7 }}</td>
+                    <td>{{ plan.comp_oblig_description_7 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>{{ plan.comp_oblig_name_8 }}</td>
+                    <td>{{ plan.comp_oblig_description_8 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>{{ plan.comp_oblig_name_9 }}</td>
+                    <td>{{ plan.comp_oblig_description_9 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>{{ plan.comp_oblig_name_10 }}</td>
+                    <td>{{ plan.comp_oblig_description_10 }}</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<br>
+{% for plan in modelC %}
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">ACTIVITIES, ASPECTS AND IMPACTS</h5>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Activities</th>
+                    <th scope="col">Aspects</th>
+                    <th scope="col">Impacts</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{ plan.activity_1 }}</td>
+                    <td>{{ plan.aspect_1 }}</td>
+                    <td>{{ plan.impact_1 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>{{ plan.activity_2 }}</td>
+                    <td>{{ plan.aspect_2 }}</td>
+                    <td>{{ plan.impact_2 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>{{ plan.activity_3 }}</td>
+                    <td>{{ plan.aspect_3 }}</td>
+                    <td>{{ plan.impact_3 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>{{ plan.activity_4 }}</td>
+                    <td>{{ plan.aspect_4 }}</td>
+                    <td>{{ plan.impact_4 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>{{ plan.activity_5 }}</td>
+                    <td>{{ plan.aspect_5 }}</td>
+                    <td>{{ plan.impact_5 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>{{ plan.activity_6 }}</td>
+                    <td>{{ plan.aspect_6 }}</td>
+                    <td>{{ plan.impact_6 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>{{ plan.activity_7 }}</td>
+                    <td>{{ plan.aspect_7 }}</td>
+                    <td>{{ plan.impact_7 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>{{ plan.activity_8 }}</td>
+                    <td>{{ plan.aspect_8 }}</td>
+                    <td>{{ plan.impact_8 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>{{ plan.activity_9 }}</td>
+                    <td>{{ plan.aspect_9 }}</td>
+                    <td>{{ plan.impact_9 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>{{ plan.activity_10 }}</td>
+                    <td>{{ plan.aspect_10 }}</td>
+                    <td>{{ plan.impact_10 }}</td>
+                  </tr>
+                  
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+<br>
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">DO</h4>
+        <hr>
+        <p class="mb-0">Risk Assessment, Objective and Policy,
+            Emergency Response, Nonconformities, Communication, Documnentation</p>
+    </div>
+</div>
+
+{% for do in modelD %}
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">RISK ASSESSMENT</h5>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Environmental threats /possible 
+                        emergencies resulting from business activity</th>
+                    <th scope="col">Negative impact on the environment
+                        USE LAW (Land, Air, Water) </th>
+                    <th scope="col">Is the probability for the negative impact occurring high, medium, or low? You decide
+                        the probability </th>
+                    <th scope="col">If the impact occurs, will it be major, medium, or minor? You decide the level of
+                        impact. </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{ do.threat1 }}</td>
+                    <td>{{ do.impact1 }}</td>
+                    <td>{{ do.probability1 }}</td>
+                    <td>{{ do.if_occurs1 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>{{ do.threat2 }}</td>
+                    <td>{{ do.impact2 }}</td>
+                    <td>{{ do.probability2 }}</td>
+                    <td>{{ do.if_occurs2 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>{{ do.threat3 }}</td>
+                    <td>{{ do.impact3 }}</td>
+                    <td>{{ do.probability3 }}</td>
+                    <td>{{ do.if_occurs3 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>{{ do.threat4 }}</td>
+                    <td>{{ do.impact4 }}</td>
+                    <td>{{ do.probability4 }}</td>
+                    <td>{{ do.if_occurs4 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>{{ do.threat5 }}</td>
+                    <td>{{ do.impact5 }}</td>
+                    <td>{{ do.probability5 }}</td>
+                    <td>{{ do.if_occurs5 }}</td>
+                  </tr>                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+
+{% for do in modelE %}
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">OBJECTIVES</h5>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Activity</th>
+                    <th scope="col">Aspect</th>
+                    <th scope="col">Objective</th>
+                    <th scope="col">Procedure</th>
+                    <th scope="col">Result Expected</th>
+                    <th scope="col">Start – End Date
+                        Responsibility</th>
+                  </tr>
+                </thead>
+                {% for asp in modelC  %}
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{ asp.activity_1 }}</td>
+                    <td>{{ asp.aspect_1 }}</td>
+                    <td>{{ do.objective_1 }}</td>
+                    <td>{{ do.procedure_1 }}</td>
+                    <td>{{ do.result_1 }}</td>
+                    <td>{{ do.start_date_1 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>{{ asp.activity_2 }}</td>
+                    <td>{{ asp.aspect_2 }}</td>
+                    <td>{{ do.objective_2 }}</td>
+                    <td>{{ do.procedure_2 }}</td>
+                    <td>{{ do.result_2 }}</td>
+                    <td>{{ do.start_date_2 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>{{ asp.activity_3 }}</td>
+                    <td>{{ asp.aspect_3 }}</td>
+                    <td>{{ do.objective_3 }}</td>
+                    <td>{{ do.procedure_3 }}</td>
+                    <td>{{ do.result_3 }}</td>
+                    <td>{{ do.start_date_3 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>{{ asp.activity_4 }}</td>
+                    <td>{{ asp.aspect_4 }}</td>
+                    <td>{{ do.objective_4 }}</td>
+                    <td>{{ do.procedure_4 }}</td>
+                    <td>{{ do.result_4 }}</td>
+                    <td>{{ do.start_date_4 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>{{ asp.activity_5 }}</td>
+                    <td>{{ asp.aspect_5 }}</td>
+                    <td>{{ do.objective_5 }}</td>
+                    <td>{{ do.procedure_5 }}</td>
+                    <td>{{ do.result_5 }}</td>
+                    <td>{{ do.start_date_5 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>{{ asp.activity_6 }}</td>
+                    <td>{{ asp.aspect_6 }}</td>
+                    <td>{{ do.objective_6 }}</td>
+                    <td>{{ do.procedure_6 }}</td>
+                    <td>{{ do.result_6 }}</td>
+                    <td>{{ do.start_date_6 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>{{ asp.activity_7 }}</td>
+                    <td>{{ asp.aspect_7 }}</td>
+                    <td>{{ do.objective_7 }}</td>
+                    <td>{{ do.procedure_7 }}</td>
+                    <td>{{ do.result_7 }}</td>
+                    <td>{{ do.start_date_7 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>{{ asp.activity_8 }}</td>
+                    <td>{{ asp.aspect_8 }}</td>
+                    <td>{{ do.objective_8 }}</td>
+                    <td>{{ do.procedure_8 }}</td>
+                    <td>{{ do.result_8 }}</td>
+                    <td>{{ do.start_date_8 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>{{ asp.activity_9 }}</td>
+                    <td>{{ asp.aspect_9 }}</td>
+                    <td>{{ do.objective_9 }}</td>
+                    <td>{{ do.procedure_9 }}</td>
+                    <td>{{ do.result_9 }}</td>
+                    <td>{{ do.start_date_9 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>{{ asp.activity_10 }}</td>
+                    <td>{{ asp.aspect_10 }}</td>
+                    <td>{{ do.objective_10 }}</td>
+                    <td>{{ do.procedure_10 }}</td>
+                    <td>{{ do.result_10 }}</td>
+                    <td>{{ do.start_date_10 }}</td>
+                  </tr>
+                  
+                </tbody>
+                {% endfor %}
+              </table>
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+
+{% for do in modelF %}
+
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">POLICY</h5>
+        <div class="card-body">
+            <p>Your environmental policy is a statement of the overall environmental direction of your business. It is a
+                declaration of your commitment to the environment. Post it publicly, in locations of your choice such as
+                business office, website, social media platform, etc. <br>
+                The policy can be short or long, and the text is your choice, but it must include these commitments:
+            <ol>
+                <li>compliance with all applicable environmental laws and regulations</li>
+                <li>conformance with the ISO 14001:2015 Environmental Management Standard</li>
+                <li>continual improvement</li>
+            </ol>
+            </p>
+            <p>Each year, depending on the new objectives chosen, the policy should indicate the new environmental
+                direction of the business. Examples: reducing (further) energy use, purchasing (more) green materials,
+                doing more training. There is no requirement to disclose specific objectives. The policy is easiest to
+                formulate after the creation of the environmental objectives.</p>
+            <h5>An example of a simple company policy statement:</h5>
+            {% for name in modelA %}
+            <p>
+                <strong>{{ name.buss_name }}</strong> Environmental Policy
+            </p>
+
+            <p>
+                <strong>{{ name.buss_name }}</strong> recognizes its responsibility to protect the environment as a
+                guiding principle and a key component of its business performance. We are committed to integrate the
+                consideration of the environment in all our decision making and activities.
+            </p>
+            <p>
+                <strong>{{ name.buss_name }}</strong> complies with all environmental laws and regulations affecting
+                its operations, conforms to and follows the ISO 14001:2015 Environmental Standard, commits to
+                continually improve.
+            </p>
+            <p>
+                <strong>{{ name.buss_name }}</strong> current objectives include:
+            </p>
+            {% endfor %}
+
+            <hr>
+            <h5>Current Objectives</h5>
+            <p> {{ do.current_objectives }} </p>
+            <br> <br>
+            <h5>Company's Existing Policy</h5>
+            <p> {{ do.existing_policy }} </p>
+
+            <br>
+            <hr>
+            {% for name in buss_info %}
+            <p> <strong>{{ name.buss_name }}</strong> commits to making our Environmental Policy publicly 
+                available. This can be done from your greenmark online dashboard. </p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+
+
+{% for do in modelG %}
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">EMERGENCY RESPONSE</h5>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Potential Emergency</th>
+                    <th scope="col">Procedure</th>
+                    <th scope="col">Company Internal Contacts Info</th>
+                    <th scope="col">Outside Emergency Contacts Info</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Chemical contamination</td>
+                    <td>{{ do.procedure_1 }}</td>
+                    <td>{{ do.internal_contact_1 }}</td>
+                    <td>{{ do.external_contact_1 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Water flooding</td>
+                    <td>{{ do.procedure_2 }}</td>
+                    <td>{{ do.internal_contact_2 }}</td>
+                    <td>{{ do.external_contact_2 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Electrical outage</td>
+                    <td>{{ do.procedure_3 }}</td>
+                    <td>{{ do.internal_contact_3 }}</td>
+                    <td>{{ do.external_contact_3 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Pest infestation</td>
+                    <td>{{ do.procedure_4 }}</td>
+                    <td>{{ do.internal_contact_4 }}</td>
+                    <td>{{ do.external_contact_4 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Waste management</td>
+                    <td>{{ do.procedure_5 }}</td>
+                    <td>{{ do.internal_contact_5 }}</td>
+                    <td>{{ do.external_contact_5 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Other</td>
+                    <td>{{ do.procedure_6 }}</td>
+                    <td>{{ do.internal_contact_6 }}</td>
+                    <td>{{ do.external_contact_6 }}</td>
+                  </tr>             
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+
+{% for do in modelH %}
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">COMMUNICATION</h5>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">How communicated</th>
+                    <th scope="col">Person responsible to communicate</th>
+                    <th scope="col">Who receives</th>
+                    <th scope="col">When</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{ do.subject_1 }}</td>
+                    <td>{{ do.how_comm_1 }}</td>
+                    <td>{{ do.person_resp_1 }}</td>
+                    <td>{{ do.who_receives_1 }}</td>
+                    <td>{{ do.when_1 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>{{ do.subject_2 }}</td>
+                    <td>{{ do.how_comm_2 }}</td>
+                    <td>{{ do.person_resp_2 }}</td>
+                    <td>{{ do.who_receives_2 }}</td>
+                    <td>{{ do.when_2 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>{{ do.subject_3 }}</td>
+                    <td>{{ do.how_comm_3 }}</td>
+                    <td>{{ do.person_resp_3 }}</td>
+                    <td>{{ do.who_receives_3 }}</td>
+                    <td>{{ do.when_3 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>{{ do.subject_4 }}</td>
+                    <td>{{ do.how_comm_4 }}</td>
+                    <td>{{ do.person_resp_4 }}</td>
+                    <td>{{ do.who_receives_4 }}</td>
+                    <td>{{ do.when_4 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>{{ do.subject_5 }}</td>
+                    <td>{{ do.how_comm_5 }}</td>
+                    <td>{{ do.person_resp_5 }}</td>
+                    <td>{{ do.who_receives_5 }}</td>
+                    <td>{{ do.when_5 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>{{ do.subject_6 }}</td>
+                    <td>{{ do.how_comm_6 }}</td>
+                    <td>{{ do.person_resp_6 }}</td>
+                    <td>{{ do.who_receives_6 }}</td>
+                    <td>{{ do.when_6 }}</td>
+                  </tr>             
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>{{ do.subject_7 }}</td>
+                    <td>{{ do.how_comm_7 }}</td>
+                    <td>{{ do.person_resp_7 }}</td>
+                    <td>{{ do.who_receives_7 }}</td>
+                    <td>{{ do.when_7 }}</td>
+                  </tr> 
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>{{ do.subject_8 }}</td>
+                    <td>{{ do.how_comm_8 }}</td>
+                    <td>{{ do.person_resp_8 }}</td>
+                    <td>{{ do.who_receives_8 }}</td>
+                    <td>{{ do.when_8 }}</td>
+                  </tr> 
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>{{ do.subject_9 }}</td>
+                    <td>{{ do.how_comm_9 }}</td>
+                    <td>{{ do.person_resp_9 }}</td>
+                    <td>{{ do.who_receives_9 }}</td>
+                    <td>{{ do.when_9 }}</td>
+                  </tr> 
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+
+{% for do in modelI %}
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">Documentation</h5>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Records Type/Name</th>
+                    <th scope="col">Main location</th>
+                    <th scope="col">Other location/links</th>
+                    <th scope="col">Person responsible</th>
+                    <th scope="col">Comments</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>This document
+                        (current year EMS)</td>
+                    <td>{{ do.main_location_1 }}</td>
+                    <td>{{ do.other_location_1 }}</td>
+                    <td>{{ do.person_resp_1 }}</td>
+                    <td>{{ do.comments_1 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Prior year/s
+                        ISO 14001:2015 EMS</td>
+                    <td>{{ do.main_location_2 }}</td>
+                    <td>{{ do.other_location_2 }}</td>
+                    <td>{{ do.person_resp_2 }}</td>
+                    <td>{{ do.comments_2 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Regulatory permits and records</td>
+                    <td>{{ do.main_location_3 }}</td>
+                    <td>{{ do.other_location_3 }}</td>
+                    <td>{{ do.person_resp_3 }}</td>
+                    <td>{{ do.comments_3 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Other Compliance Obligations agreements</td>
+                    <td>{{ do.main_location_4 }}</td>
+                    <td>{{ do.other_location_4 }}</td>
+                    <td>{{ do.person_resp_4 }}</td>
+                    <td>{{ do.comments_4 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Policy Statement</td>
+                    <td>{{ do.main_location_5 }}</td>
+                    <td>{{ do.other_location_5 }}</td>
+                    <td>{{ do.person_resp_5 }}</td>
+                    <td>{{ do.comments_5 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Objectives Planning Sheets
+                        (completed)</td>
+                    <td>{{ do.main_location_6 }}</td>
+                    <td>{{ do.other_location_6 }}</td>
+                    <td>{{ do.person_resp_6 }}</td>
+                    <td>{{ do.comments_6 }}</td>
+                  </tr>             
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Emergency Response Procedures</td>
+                    <td>{{ do.main_location_7 }}</td>
+                    <td>{{ do.other_location_7 }}</td>
+                    <td>{{ do.person_resp_7 }}</td>
+                    <td>{{ do.comments_7 }}</td>
+                  </tr> 
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Other Operational Procedures</td>
+                    <td>{{ do.main_location_8 }}</td>
+                    <td>{{ do.other_location_8 }}</td>
+                    <td>{{ do.person_resp_8 }}</td>
+                    <td>{{ do.comments_8 }}</td>
+                  </tr> 
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>Training Procedures</td>
+                    <td>{{ do.main_location_9 }}</td>
+                    <td>{{ do.other_location_9 }}</td>
+                    <td>{{ do.person_resp_9 }}</td>
+                    <td>{{ do.comments_9 }}</td>
+                  </tr> 
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>Quarterly Audits and Annual Review</td>
+                    <td>{{ do.main_location_10 }}</td>
+                    <td>{{ do.other_location_10 }}</td>
+                    <td>{{ do.person_resp_10 }}</td>
+                    <td>{{ do.comments_10 }}</td>
+                  </tr> 
+                  <tr>
+                    <th scope="row">11</th>
+                    <td>Other documents</td>
+                    <td>{{ do.main_location_11 }}</td>
+                    <td>{{ do.other_location_11 }}</td>
+                    <td>{{ do.person_resp_11 }}</td>
+                    <td>{{ do.comments_11 }}</td>
+                  </tr> 
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+<br>
+
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">CHECK</h4>
+        <hr>
+        <p class="mb-0">Audits and Annual Review, greenmark registry commitment</p>
+    </div>
+</div>
+
+{% for check in modelJ %}
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">AUDITS AND ANNUAL MANAGEMENT REVIEW</h5>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Objectives</th>
+                    <th scope="col">Start Date committed to: </th>
+                    <th scope="col">Achievement evaluation to-date</th>
+                    <th scope="col">Comments/Next steps recommended</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">#Exmp</th>
+                        <td>Turn off lights nightly (at the end of the workday)</td>
+                        <td>October 30 2022</td>
+                        <td>Completed successfully</td>
+                        <td>Ensure continued implementation</td>
+                    </tr>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{ check.objective_1 }}</td>
+                    <td>{{ check.start_date_1 }}</td>
+                    <td>{{ check.achievement_1 }}</td>
+                    <td>{{ check.comment_1 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>{{ check.objective_2 }}</td>
+                    <td>{{ check.start_date_2 }}</td>
+                    <td>{{ check.achievement_2 }}</td>
+                    <td>{{ check.comment_2 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>{{ check.objective_3 }}</td>
+                    <td>{{ check.start_date_3 }}</td>
+                    <td>{{ check.achievement_3 }}</td>
+                    <td>{{ check.comment_3 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>{{ check.objective_4 }}</td>
+                    <td>{{ check.start_date_4 }}</td>
+                    <td>{{ check.achievement_4 }}</td>
+                    <td>{{ check.comment_4 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>{{ check.objective_5 }}</td>
+                    <td>{{ check.start_date_5 }}</td>
+                    <td>{{ check.achievement_5 }}</td>
+                    <td>{{ check.comment_5 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>{{ check.objective_6 }}</td>
+                    <td>{{ check.start_date_6 }}</td>
+                    <td>{{ check.achievement_6 }}</td>
+                    <td>{{ check.comment_6 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>{{ check.objective_7 }}</td>
+                    <td>{{ check.start_date_7 }}</td>
+                    <td>{{ check.achievement_7 }}</td>
+                    <td>{{ check.comment_7 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>{{ check.objective_8 }}</td>
+                    <td>{{ check.start_date_8 }}</td>
+                    <td>{{ check.achievement_8 }}</td>
+                    <td>{{ check.comment_8 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>{{ check.objective_9 }}</td>
+                    <td>{{ check.start_date_9 }}</td>
+                    <td>{{ check.achievement_9 }}</td>
+                    <td>{{ check.comment_9 }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>{{ check.objective_10 }}</td>
+                    <td>{{ check.start_date_10 }}</td>
+                    <td>{{ check.achievement_10 }}</td>
+                    <td>{{ check.comment_10 }}</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+<br>
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">ACT</h4>
+        <hr>
+        <p class="mb-0">Continual improvement</p>
+    </div>
+</div>
+<br>
+
+{% for act in modelA %}
+<div class="container">
+    <div class="card border-success">
+        <h5 class="card-header">ANNUAL MANAGEMENT REVIEW</h5>
+        <div class="card-body">
+            <p><strong>This review should be completed at the end of the year:</strong> it can be done during or right after the fourth Quarter Audit or soon after. The Key Decision Maker/s and the Environment Manager do the following:
+                <ol>
+                    <li>Evaluate the overall environmental performance in light of the policy and commitment to objectives</li>
+        
+                    <li>Identify and commit to new objectives taking into account changes in the business during the last year</li>
+        
+                    <li>Sign off on starting a new ISO 14001:2015 cycle and celebrate success</li>
+                </ol>
+                </p>
+        
+                <h3>CONTINUAL IMPROVEMENT</h3>
+                <p> <strong> {{ act.buss_name }} </strong> commits to having quarterly and annual reviews, audited by greenmark. </p>
+        
+                <p> <strong> {{ act.buss_name }} </strong>   commits to continually improve its environmental management system, evidenced by the greenmark online registry.</p>
+          
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+
+<br><br><br>
+
+<script src="{% static 'index.js' %}"></script>
+
+{% endblock content %}
+
+
+

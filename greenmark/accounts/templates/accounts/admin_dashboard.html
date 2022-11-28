@@ -1,0 +1,55 @@
+{% extends 'accounts/base.html' %}
+
+{% block css %}
+
+{% endblock css %}
+{% block title %} Admin Dashboard {% endblock title %}
+
+{% block content %}
+
+<!--Dashboard--> 
+
+  <div class="nav-area">
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Greenmark Online</a>
+      <span class="left-float"><a href="{% url 'accounts:logout' %}">Logout</a></spa>
+    </nav>
+  </div>
+  
+  <br> 
+  
+  <div class="container">
+    <div class="jumbotron">
+        <h2>Admin Dashboard</h2>
+        <hr>
+        
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">User</th>
+                <th scope="col">Business Name</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for a in modelA %}
+              <tr>
+                <td>{{ a.user }}</td>
+                <td>{{ a.buss_name }}</td>
+                <td><a href="{% url 'accounts:admin_view_iso' a.id %}" class="btn btn-success">Success</a> </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+          
+        
+        
+    </div>
+  </div>
+
+
+
+<br>
+
+{% endblock content %}
