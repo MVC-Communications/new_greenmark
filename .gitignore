@@ -127,7 +127,6 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-migrations
 # Pyre type checker
 .pyre/
 .env__

@@ -9,6 +9,7 @@ charset-normalizer==2.1.1
 click==8.1.3
 colorama==0.4.5
 cryptography==38.0.1
+gunicorn
 cssselect2==0.7.0
 Django==3.2.16 
 django-bootstrap4==22.2
@@ -19,6 +20,7 @@ html5lib==1.1
 idna==3.4
 lxml==4.9.1
 oscrypto==1.3.0
+dj-database-url
 postgres
 psycopg2-binary
 psycopg2-pool
@@ -46,3 +48,4 @@ uritools==4.0.0
 urllib3==1.26.12
 webencodings==0.5.1
 xhtml2pdf==0.2.8
+python-decouple
